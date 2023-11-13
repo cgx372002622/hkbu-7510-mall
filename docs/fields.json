@@ -1,0 +1,33 @@
+{
+    "users": [
+        {
+            "username": "",
+            "password": "",
+            "nickname": "",
+            "avatarUrl": "",
+            "phoneNumber": "",
+            "address": "",
+            "cart": [
+                {
+                    "goodsId": "",
+                    "count": 0
+                }
+            ],
+            "orders": [
+                {
+                    "goodsId": "",
+                    "count": 0
+                }
+            ]
+        }
+    ],
+    "goods": [
+        {
+            "id": "",
+            "name": "",
+            "price": 0,
+            "store": "",
+            "picUrl": ""
+        }
+    ]
+}
