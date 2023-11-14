@@ -35,10 +35,9 @@ class Mall(MDApp):
     font_size = 14 # 标准字体
     font_size_lg = 16 # 大号字体
     border_color = '#d9d9d9' # 边框颜色
-    a = 1
 
     def build(self):
-        from .screens import cart, detail, list, login, me, register
+        from .screens import cart, detail, list, login, me, register, update, order
 
         self.root = ScreenManager()
 
@@ -48,6 +47,8 @@ class Mall(MDApp):
         self.login = login.Login()
         self.me = me.Me()
         self.register = register.Register()
+        self.update = update.Update()
+        self.order = order.Order()
 
         self.screens = {
             'cart': self.cart,
@@ -55,7 +56,9 @@ class Mall(MDApp):
             'list': self.list,
             'login': self.login,
             'me': self.me,
-            'register': self.register
+            'register': self.register,
+            'update': self.update,
+            'order': self.order
         }
 
         self.root.switch_to(self.login)
