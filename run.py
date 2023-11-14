@@ -1,4 +1,4 @@
-from app import app
+from app.main import Mall
 
 if __name__ == '__main__':
-    app.run()
+    Mall().run()
