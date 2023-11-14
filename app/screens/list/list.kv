@@ -1,1 +1,42 @@
 <List>:
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: app.main_bg_color
+
+        MDTopAppBar:
+            md_bg_color: app.header_bg_color
+            padding: app.padding_md
+
+            MDTextField:
+                mode: "round"
+                size_hint: 0.8, None
+                pos_hint: {"center_x": .5}
+
+        MDBottomNavigation:
+            MDBottomNavigationItem:
+                name: "screen 1"
+
+                MDLabel:
+                    text: "Content1"
+                    halign: "center"
+
+            MDBottomNavigationItem:
+                name: "screen 2"
+
+                MDLabel:
+                    text: "Content2"
+                    halign: "center"
+
+            MDBottomNavigationItem:
+                name: "screen 3"
+
+                MDLabel:
+                    text: "Content3"
+                    halign: "center"
+
+            MDBottomNavigationItem:
+                name: "screen 4"
+
+                MDLabel:
+                    text: "Content4"
+                    halign: "center"
