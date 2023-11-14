@@ -19,9 +19,21 @@ class Mall(MDApp):
     # style
     header_bg_color = ListProperty([249 / 255, 245 / 255, 245 / 255, 1]) # 头部背景颜色
     main_bg_color = ListProperty([255 / 255, 255 / 255, 255 / 255, 1]) # 主体背景颜色
+    bottom_bg_color = ListProperty([249 / 255, 245 / 255, 245 / 255, 1]) # 底部背景颜色
     main_btn_bg_color = ListProperty([251 / 255, 155 / 255, 42 / 255, 1]) # 主按钮背景颜色
     main_btn_font_color = ListProperty([255 / 255, 255 / 255, 255 / 255, 1]) # 主按钮字体颜色
-    main_text_color = ListProperty([0 / 255, 0 / 255, 0 / 255, 1]) # 最深的文本色
+    main_text_color = ListProperty([0 / 255, 0 / 255, 0 / 255, 0.88]) # 最深的文本色，默认的文本颜色
+    tertiary_text_color = ListProperty([0 / 255, 0 / 255, 0 / 255, 0.45]) # 第三级文本色一般用于描述性文本，例如表单的中的补充说明文本、列表的描述性文本等场景。
+    quaternary_text_color = ListProperty([0 / 255, 0 / 255, 0 / 255, 0.25]) # 第四级文本色是最浅的文本色，例如表单的输入提示文本
+    placeholder_text_color = ListProperty([0 / 255, 0 / 255, 0 / 255, 0.25]) # 控制占位文本的颜色
+    padding_xxs = 4 # 极小间距
+    padding_xs = 8 # 特小间距
+    padding_sm = 12 # 小间距
+    padding_sm = 18 # 中间距
+    padding_lg = 24 # 大间距
+    font_size_sm = 12 # 小号字体
+    font_size = 14 # 标准字体
+    font_size_lg = 16 # 大号字体
     border_color = '#d9d9d9' # 边框颜色
 
     def build(self):
