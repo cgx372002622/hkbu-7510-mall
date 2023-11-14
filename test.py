@@ -28,10 +28,10 @@ class Test(MDApp):
     padding_sm = NumericProperty(12) # 小间距
     padding_md = NumericProperty(18) # 中间距
     padding_lg = NumericProperty(24) # 大间距
-    font_size_sm = 12 # 小号字体
-    font_size = 14 # 标准字体
-    font_size_lg = 16 # 大号字体
-    border_color = '#d9d9d9' # 边框颜色
+    font_size_sm = NumericProperty(12) # 小号字体
+    font_size = NumericProperty(14) # 标准字体
+    font_size_lg = NumericProperty(16) # 大号字体
+    border_color = StringProperty('#d9d9d9') # 边框颜色
 
     def build(self):
         self.title = 'My Mall'
