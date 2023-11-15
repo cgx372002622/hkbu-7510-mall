@@ -37,7 +37,7 @@ class Mall(MDApp):
     border_color = '#d9d9d9' # 边框颜色
 
     def build(self):
-        from .screens import cart, detail, list, login, me, register, update, order
+        from .screens import cart, detail, list, login, me, register, update, order, navigator
 
         self.root = ScreenManager()
 
@@ -49,6 +49,7 @@ class Mall(MDApp):
         self.register = register.Register()
         self.update = update.Update()
         self.order = order.Order()
+        self.navigator = navigator.Navigator()
 
         self.screens = {
             'cart': self.cart,
@@ -58,7 +59,8 @@ class Mall(MDApp):
             'me': self.me,
             'register': self.register,
             'update': self.update,
-            'order': self.order
+            'order': self.order,
+            'navigator': self.navigator
         }
 
         self.root.switch_to(self.login)

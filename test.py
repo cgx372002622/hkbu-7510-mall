@@ -1,5 +1,5 @@
 from kivymd.app import MDApp
-from kivy.uix.screenmanager import ScreenManager
+from kivy.uix.screenmanager import ScreenManager, Screen
 
 from kivy.core.window import Window
 from kivy.utils import platform
@@ -37,7 +37,8 @@ class Test(MDApp):
         self.title = 'My Mall'
         icon = 'app/icon.ico'
 
-        from app.screens import cart, detail, list, login, me, register, update, order
+        from app.screens import detail, login, register, update, order, navigator
+        from app.widgets import cart, me, list
 
         self.root = ScreenManager()
 
@@ -49,6 +50,7 @@ class Test(MDApp):
         self.register = register.Register()
         self.update = update.Update()
         self.order = order.Order()
+        self.navigator = navigator.Navigator()
 
         self.screens = {
             'cart': self.cart,
@@ -58,11 +60,16 @@ class Test(MDApp):
             'me': self.me,
             'register': self.register,
             'update': self.update,
-            'order': self.order
+            'order': self.order,
+            'navigator': self.navigator
         }
 
-        # change this to test your page
-        self.root.switch_to(self.list)
+        # self.root.switch_to(self.list)
+        screen = Screen()
+
+        screen.add_widget(self.list) # <- widget测试专用(List, Cart, Me)
+
+        self.root.add_widget(self.navigator) # <- screen测试请修改这里(Login, Register, Detail, Order, Update)
 
         return self.root
 
