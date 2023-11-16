@@ -17,7 +17,7 @@ class Mall(MDApp):
     icon = 'app/icon.ico'
 
     # style
-    header_bg_color = ListProperty([249 / 255, 245 / 255, 245 / 255, 1]) # 头部背景颜色
+    header_bg_color = ListProperty([231 / 255, 225 / 255, 227 / 255, 1]) # 头部背景颜色
     main_bg_color = ListProperty([255 / 255, 255 / 255, 255 / 255, 1]) # 主体背景颜色
     bottom_bg_color = ListProperty([249 / 255, 245 / 255, 245 / 255, 1]) # 底部背景颜色
     main_btn_bg_color = ListProperty([251 / 255, 155 / 255, 42 / 255, 1]) # 主按钮背景颜色
@@ -26,16 +26,16 @@ class Mall(MDApp):
     tertiary_text_color = ListProperty([0 / 255, 0 / 255, 0 / 255, 0.45]) # 第三级文本色一般用于描述性文本，例如表单的中的补充说明文本、列表的描述性文本等场景。
     quaternary_text_color = ListProperty([0 / 255, 0 / 255, 0 / 255, 0.25]) # 第四级文本色是最浅的文本色，例如表单的输入提示文本
     placeholder_text_color = ListProperty([0 / 255, 0 / 255, 0 / 255, 0.25]) # 控制占位文本的颜色
-    padding_xxs = 4 # 极小间距
-    padding_xs = 8 # 特小间距
-    padding_sm = 12 # 小间距
-    padding_md = 18 # 中间距
-    padding_lg = 24 # 大间距
-    font_size_sm = 12 # 小号字体
-    font_size = 14 # 标准字体
-    font_size_lg = 16 # 大号字体
-    font_size_llg = 24 # 特大号字体
-    border_color = '#d9d9d9' # 边框颜色
+    padding_xxs = NumericProperty(4) # 极小间距
+    padding_xs = NumericProperty(8) # 特小间距
+    padding_sm = NumericProperty(12) # 小间距
+    padding_md = NumericProperty(18) # 中间距
+    padding_lg = NumericProperty(24) # 大间距
+    font_size_sm = NumericProperty(16) # 小号字体
+    font_size = NumericProperty(24) # 标准字体
+    font_size_lg = NumericProperty(40) # 大号字体
+    border_color = StringProperty('#d9d9d9') # 边框颜色
+    price_text_color = ListProperty([255 / 255, 68 / 255, 0 / 255, 1]) # 价格字体颜色
 
     def build(self):
         from .screens import cart, detail, list, login, me, register, update, order, navigator
