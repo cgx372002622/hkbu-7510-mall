@@ -34,6 +34,7 @@ class Mall(MDApp):
     font_size_sm = 12 # 小号字体
     font_size = 14 # 标准字体
     font_size_lg = 16 # 大号字体
+    font_size_llg = 24 # 特大号字体
     border_color = '#d9d9d9' # 边框颜色
 
     def build(self):

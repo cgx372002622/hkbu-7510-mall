@@ -5,6 +5,8 @@ from kivy.core.window import Window
 from kivy.utils import platform
 
 from kivy.properties import ListProperty, StringProperty, NumericProperty
+from app.utils.database import db_ref
+
 
 if platform in ('win', 'macosx'):
     Window.size = (414, 736)
@@ -31,11 +33,12 @@ class Test(MDApp):
     font_size_sm = NumericProperty(12) # 小号字体
     font_size = NumericProperty(14) # 标准字体
     font_size_lg = NumericProperty(16) # 大号字体
+    font_size_llg = NumericProperty(30) # 特大号字体
     border_color = StringProperty('#d9d9d9') # 边框颜色
 
     def build(self):
         self.title = 'My Mall'
-        icon = 'app/icon.ico'
+        icon = 'app/icon.icow'
 
         from app.screens import detail, login, register, update, order, navigator
         from app.widgets import cart, me, list
