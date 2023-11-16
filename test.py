@@ -69,9 +69,14 @@ class Test(MDApp):
 
         screen.add_widget(self.list) # <- widget测试专用(List, Cart, Me)
 
-        self.root.add_widget(self.navigator) # <- screen测试请修改这里(Login, Register, Detail, Order, Update)
+        self.root.add_widget(self.register) # <- screen测试请修改这里(Login, Register, Detail, Order, Update)
 
         return self.root
+    
+    def switch_screen(self, screen_name, direction='left'):
+        self.root.transition.direction = direction
+        self.root.switch_to(self.screens.get(screen_name))    
 
 if __name__ == '__main__':
     Test().run()
+

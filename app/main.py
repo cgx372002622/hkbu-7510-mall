@@ -29,7 +29,7 @@ class Mall(MDApp):
     padding_xxs = 4 # 极小间距
     padding_xs = 8 # 特小间距
     padding_sm = 12 # 小间距
-    padding_sm = 18 # 中间距
+    padding_md = 18 # 中间距
     padding_lg = 24 # 大间距
     font_size_sm = 12 # 小号字体
     font_size = 14 # 标准字体
