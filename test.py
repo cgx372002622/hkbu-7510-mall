@@ -28,10 +28,11 @@ class Test(MDApp):
     padding_sm = NumericProperty(12) # 小间距
     padding_md = NumericProperty(18) # 中间距
     padding_lg = NumericProperty(24) # 大间距
-    font_size_sm = NumericProperty(12) # 小号字体
-    font_size = NumericProperty(14) # 标准字体
-    font_size_lg = NumericProperty(16) # 大号字体
+    font_size_sm = NumericProperty(16) # 小号字体
+    font_size = NumericProperty(24) # 标准字体
+    font_size_lg = NumericProperty(40) # 大号字体
     border_color = StringProperty('#d9d9d9') # 边框颜色
+    price_text_color = ListProperty([255 / 255, 68 / 255, 0 / 255, 1]) # 价格字体颜色
 
     def build(self):
         self.title = 'My Mall'
@@ -67,15 +68,18 @@ class Test(MDApp):
         # self.root.switch_to(self.list)
         screen = Screen()
 
-        screen.add_widget(self.list) # <- widget测试专用(List, Cart, Me)
+        # screen.add_widget(self.list) # <- widget测试专用(List, Cart, Me)
 
-        self.root.add_widget(self.register) # <- screen测试请修改这里(Login, Register, Detail, Order, Update)
+        self.root.add_widget(self.detail) # <- screen测试请修改这里(Login, Register, Detail, Order, Update)
 
         return self.root
     
     def switch_screen(self, screen_name, direction='left'):
         self.root.transition.direction = direction
-        self.root.switch_to(self.screens.get(screen_name))    
+        self.root.switch_to(self.screens.get(screen_name))
+    
+    def get_screen(self, screen_name):
+        return self.screens.get(screen_name)
 
 if __name__ == '__main__':
     Test().run()

@@ -1,1 +1,42 @@
+#:import Window kivy.core.window.Window
+
 <Detail>:
+    id: 'goods-1'
+    picUrl: 'https://firebasestorage.googleapis.com/v0/b/comp7510-mall.appspot.com/o/mall%2Fgoods-1.jpg?alt=media&token=0f37acb5-8bdc-4228-ad84-31acd4955975'
+
+    MDScrollView:
+
+        GridLayout:
+            cols: 1
+            size_hint: (1, None)
+            height: self.minimum_height
+            spacing: dp((Window.height/1080)*20)
+
+            AsyncImage:
+                source: root.picUrl
+                size_hint: 1, None
+                height: Window.height / 2
+                allow_stretch: True
+                nocache: False
+
+            MDBoxLayout:
+                md_bg_color: app.main_bg_color
+                size_hint: 1, None
+                height: self.minimum_height
+                orientation: 'vertical'
+                spacing: dp((Window.height/1080)*20)
+                padding: app.padding_md
+
+                MDLabel:
+                    text: '9999999999'
+                    size_hint: 1, None
+                    color: app.price_text_color
+                    font_size: app.font_size_lg
+                    height: app.font_size
+
+                MDLabel:
+                    text: 'Apple'
+                    size_hint: 1, None
+                    color: app.main_text_color
+                    font_size: app.font_size
+                    height: app.font_size

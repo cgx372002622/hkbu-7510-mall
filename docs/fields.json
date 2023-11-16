@@ -1,6 +1,7 @@
 {
-    "users": [
-        {
+    "users": {
+        "userId1": {
+            "userId": "",
             "username": "",
             "password": "",
             "nickname": "",
@@ -20,70 +21,70 @@
                 }
             ]
         }
-    ],
-    "goods": [
-        {
+    },
+    "goods": {
+        "goods-1": {
             "id": "goods-1",
             "name": "apple",
             "price": 4,
             "store": "Fruit store",
             "picUrl": "https://firebasestorage.googleapis.com/v0/b/comp7510-mall.appspot.com/o/mall%2Fgoods-1.jpg?alt=media&token=0f37acb5-8bdc-4228-ad84-31acd4955975"
         },
-        {
+        "goods-2": {
             "id": "goods-2",
             "name": "banana",
             "price": 4,
             "store": "Fruit store",
             "picUrl": "https://firebasestorage.googleapis.com/v0/b/comp7510-mall.appspot.com/o/mall%2Fgoods-2.jpg?alt=media&token=38fc777c-366d-4b5d-9355-e3b601ae4ea1"
         },
-        {
+        "goods-3": {
             "id": "goods-3",
             "name": "iPhone 15",
             "price": 7999,
             "store": "Apple store",
             "picUrl": "https://firebasestorage.googleapis.com/v0/b/comp7510-mall.appspot.com/o/mall%2Fgoods-3.jpg?alt=media&token=93c58d75-36de-457e-b134-46235345260f"
         },
-        {
+        "goods-4": {
             "id": "goods-4",
             "name": "HUAWEI P60 Pro",
             "price": 6999,
             "store": "HUAWEI store",
             "picUrl": "https://firebasestorage.googleapis.com/v0/b/comp7510-mall.appspot.com/o/mall%2Fgoods-4.jpg?alt=media&token=0da36925-30f9-484e-bcef-7173b7e587e2"
         },
-        {
+        "goods-5": {
             "id": "goods-5",
             "name": "Maserati",
             "price": 1200000,
             "store": "Maserati store",
             "picUrl": "https://firebasestorage.googleapis.com/v0/b/comp7510-mall.appspot.com/o/mall%2Fgoods-5.jpg?alt=media&token=feb78fcf-45d1-4082-a16e-cc6458ea17c2"
         },
-        {
+        "goods-6": {
             "id": "goods-6",
             "name": "Porsche",
             "price": 1200000,
             "store": "Porsche store",
             "picUrl": "https://firebasestorage.googleapis.com/v0/b/comp7510-mall.appspot.com/o/mall%2Fgoods-6.jpg?alt=media&token=27e81b55-5109-47ac-bf8c-306e391c9717"
         },
-        {
+        "goods-7": {
             "id": "goods-7",
             "name": "Cola",
             "price": 4,
             "store": "SEVEN-ELEVEN",
             "picUrl": "https://firebasestorage.googleapis.com/v0/b/comp7510-mall.appspot.com/o/mall%2Fgoods-7.jpg?alt=media&token=bd34ce87-a8fe-41aa-932a-00b24728afe3"
         },
-        {
+        "goods-8": {
             "id": "goods-8",
             "name": "F16",
             "price": 60000000,
             "store": "Lockheed Martin",
             "picUrl": "https://firebasestorage.googleapis.com/v0/b/comp7510-mall.appspot.com/o/mall%2Fgoods-8.jpg?alt=media&token=bb3b2947-9e60-4dd7-8893-bb35dcd3e62b"
         },
-        {
+        "goods-9": {
             "id": "goods-9",
             "name": "tank",
             "price": 10000000,
             "store": "Lockheed Martin",
             "picUrl": "https://firebasestorage.googleapis.com/v0/b/comp7510-mall.appspot.com/o/mall%2Fgoods-9.jpg?alt=media&token=c7d10b90-b00b-426f-a4f3-4ea1a7695119"
         }
-    ]
+    }
 }
