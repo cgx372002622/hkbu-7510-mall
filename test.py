@@ -5,6 +5,8 @@ from kivy.core.window import Window
 from kivy.utils import platform
 
 from kivy.properties import ListProperty, StringProperty, NumericProperty
+from app.utils.database import db_ref
+
 
 if platform in ('win', 'macosx'):
     Window.size = (414, 736)
@@ -36,7 +38,7 @@ class Test(MDApp):
 
     def build(self):
         self.title = 'My Mall'
-        icon = 'app/icon.ico'
+        icon = 'app/icon.icow'
 
         from app.screens import detail, login, register, update, order, navigator
         from app.widgets import cart, me, list

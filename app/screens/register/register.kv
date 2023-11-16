@@ -1,96 +1,96 @@
 <Register>:
 
-
-
     MDBoxLayout:
         orientation: "vertical"
         md_bg_color: app.main_bg_color
         spacing:'10dp'  #只能在父类设置
+        spacing:'15dp'
 
         MDTopAppBar:
             title:"Register"
             md_bg_color: app.header_bg_color
             padding: app.padding_md
-            #size_hint:1,None
+            size_hint:1,None
             left_action_items:[["arrow-left", lambda x:app.switch_screen('login','left')]]
 
         MDBoxLayout:
             orientation: "vertical" 
-            spacing:'25dp'
+            spacing:'20dp'
             padding:'20dp'
 
-            #MDCard
-                #size_hint:None,None
-                #size:'280dp','180dp'
-                #pos_hint:{'center_x':0.5,'center_y':0.5}
-
+            Image:
+                size_hint: None,None
+                size: '120dp','120dp'
+                pos_hint:{'center_x':0.5,'center_y':0.5}
+                source: 'app/resources/Me.png'
 
             MDTextField:
                 id: text_username
                 hint_text: "Username"
-                mode: "round"
                 #size_hint: 1, None
-                helper_text: "Please input your username"
+                helper_text: "Please input your username max length 8"
                 helper_text_mode: "persistent"
+                mode: "rectangle"
+                max_text_length: 8
                 #fill_color_normal: app.main_bg_color
                 #hint_text_color_normal: app.placeholder_text_color
-                height:'40dp'
 
             MDTextField:
                 id:text_password
                 hint_text: "Password"
                 helper_text: "Please input your password"
                 helper_text_mode: "persistent"
-                mode:"round"
-                #size_hint:1,None
-                padding: app.padding_md
-                height:'40dp'
+                mode:"rectangle"
+                password: True
+                size_hint:1,None
 
             MDTextField:
                 id:text_nickname
                 hint_text: "Nickname"
                 helper_text: "Please input your nickname"
                 helper_text_mode: "persistent"
-                mode:"round"
-                #size_hint:1,None
+                mode:"rectangle"
+                size_hint:1,None
 
             MDTextField:
-                id:text_phone_number
+                id:text_phoneNumber
                 hint_text: "Phone number"
-                helper_text: "Please input your phone number"
+                helper_text: "Please input your phone number max length 8"
                 helper_text_mode: "persistent"
-                mode:"round"
-                #size_hint:1,None
+                mode:"rectangle"
+                size_hint:1,None
+                max_text_length: 8
 
             MDTextField:
                 id:text_address
                 hint_text: "Address"
                 helper_text: "Please input your address"
                 helper_text_mode: "persistent"
-                mode:"round"
-
-        MDBoxLayout:
-            orientation:'horizontal'
-            spacing:'35dp'
-            padding:'20dp'
-
-            MDFillRoundFlatButton:
-                text:'Register'
-                halign:'center'
-                text_color: 'white'
-                md_bg_color:'green'
-                font_size:app.font_size_lg
+                mode:"rectangle"
                 size_hint:1,None
-                pos_hint:{'x':0,'y':0.8}
-                on_press:root.register()
-                on_release:app.switch_screen('login')
 
-            MDFillRoundFlatButton:
-                text:'Cancel'
-                halign:'center'
-                text_color: 'white'
-                md_bg_color:'green'
-                font_size:app.font_size_lg
-                size_hint:1,None
-                pos_hint:{'x':1,'y':0.8}
-                on_press:root.cancel()
+            MDBoxLayout:
+                orientation:'horizontal'
+                spacing:'10dp'
+                padding:'20dp'
+
+                MDFillRoundFlatButton:
+                    text:'Register'
+                    halign:'center'
+                    text_color: 'white'
+                    md_bg_color:'green'
+                    font_size: app.font_size_llg
+                    size_hint: 1,None
+                    pos_hint: {'x':0,'y':0.5}
+                    on_press: root.register()
+                    on_release: root.submit_data()
+
+                MDFillRoundFlatButton:
+                    text:'Cancel'
+                    halign:'center'
+                    text_color: 'white'
+                    md_bg_color:'green'
+                    font_size:app.font_size_llg
+                    size_hint:1,None
+                    pos_hint:{'x':1,'y':0.5}
+                    on_press:root.cancel()
