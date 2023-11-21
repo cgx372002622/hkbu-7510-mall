@@ -32,8 +32,10 @@ class Test(MDApp):
     padding_lg = NumericProperty(24) # 大间距
     font_size_sm = NumericProperty(16) # 小号字体
     font_size = NumericProperty(24) # 标准字体
+    font_size_md = NumericProperty(32) # 中号字体
     font_size_lg = NumericProperty(40) # 大号字体
     border_color = StringProperty('#d9d9d9') # 边框颜色
+    test_color = ListProperty([222 / 255, 48 / 255, 35 / 255, 1]) # 测试颜色
     price_text_color = ListProperty([255 / 255, 68 / 255, 0 / 255, 1]) # 价格字体颜色
 
     def build(self):
