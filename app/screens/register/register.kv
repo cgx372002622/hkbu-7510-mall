@@ -4,7 +4,8 @@
         orientation: "vertical"
         md_bg_color: app.main_bg_color
         spacing:'10dp'  #只能在父类设置
-        spacing:'15dp'
+        spacing:'0dp'
+        size_hint_y: 1
 
         MDTopAppBar:
             title:"Register"
@@ -15,9 +16,10 @@
 
         MDBoxLayout:
             orientation: "vertical" 
-            spacing:'20dp'
-            padding:'20dp'
-            size_hint_y: 0.6
+            spacing:'15dp'
+            padding:'15dp'
+            size_hint_y: 0.8
+            md_bg_color: "#5bc0f6"
 
             Image:
                 size_hint: None,None
@@ -37,23 +39,23 @@
                 #fill_color_normal: app.main_bg_color
                 #hint_text_color_normal: app.placeholder_text_color
 
-            ClickableTextFieldRound:
+            ClickableTextFieldRound1:
                 id:text_password
                 hint_text: "Password"
                 helper_text: "Please input your password"
                 helper_text_mode: "persistent"
-                mode:"rectangle"
+                mode: "rectangle"
                 password: True
-                size_hint:1,None
+                size_hint: 1,None
 
-            ClickableTextFieldRound:
-                id:text_confirm_password
-                hint_text: "Confirm your Password"
-                helper_text: "Please input your password again"
+            ClickableTextFieldRound2:           #密码二次确认组件
+                id: text_confirm_password
+                #hint_text: "Confirm your Password"
+                #helper_text: "Please input your password again"
                 helper_text_mode: "persistent"
-                mode:"rectangle"
+                mode: "rectangle"
                 password: True
-                size_hint:1,None
+                size_hint: 1,None
 
             MDTextField:
                 id:text_nickname
@@ -83,32 +85,32 @@
                 size_hint:1,None
                 icon_left: 'map-marker'
 
-            MDBoxLayout:
-                orientation:'horizontal'
-                spacing:'10dp'
-                padding:'20dp'
-                size_hint_y: 0.2
+        MDBoxLayout:
+            orientation:'horizontal'
+            spacing: '0dp'
+            padding: '0dp'
+            size_hint_y: 0.1
+            md_bg_color: app.bottom_bg_color
 
-                MDFillRoundFlatButton:
-                    text:'Sign up'
-                    halign:'center'
-                    text_color: 'white'
-                    md_bg_color:'green'
-                    font_size: app.font_size_lg
-                    size_hint: 1,None
-                    pos_hint: {'x':0,'y':0.3}
-                    #on_press: root.register()
-                    on_release: root.submit_data()
+            MDRectangleFlatButton:
+                text:'Sign up'
+                halign:'center'
+                text_color: 'white'
+                md_bg_color:'green'
+                font_size: app.font_size_lg
+                size_hint: 0.8,None
+                pos_hint: {'x':0,'y':0.1}
+                on_press: root.submit_data()
 
-                MDFillRoundFlatButton:
-                    text:'Cancel'
-                    halign:'center'
-                    text_color: 'white'
-                    md_bg_color:'green'
-                    font_size:app.font_size_lg
-                    size_hint:1,None
-                    pos_hint:{'x':1,'y':0.3}
-                    on_press:root.cancel()
+            MDRectangleFlatButton:
+                text:'Cancel'
+                halign:'center'
+                text_color: 'white'
+                md_bg_color:'red'
+                font_size:app.font_size_lg
+                size_hint:0.8,None
+                pos_hint:{'x':1,'y':0.1}
+                on_press:root.cancel()
 
 
 <ContentTextField@MDTextField>:
@@ -124,3 +126,28 @@
     fill_color_focus: 0, 0, 0, 0
     line_color: "#f0f0f0"
     line_color_foncus: "#7283f5"
+
+<ClickableTextFieldRound2>:
+    size_hint_y: None
+    height: text_field.height
+
+    MDTextField:
+        id: text_field
+        text: root.text
+        hint_text: "Confirm your password"
+        password: True
+        icon_left: "key-variant"
+        mode: 'rectangle'
+        helper_text: "Please input your password again"
+        helper_text_mode: "persistent"
+
+    MDIconButton:
+        icon: "eye-off"
+        pos_hint: {"center_y": .4}
+        pos: text_field.width - self.width + dp(8), 0
+        theme_text_color: "Hint"
+        on_release:
+            self.icon = "eye" if self.icon == "eye-off" else "eye-off"
+            text_field.password = False if text_field.password is True else True
+
+

@@ -36,35 +36,36 @@ class Login(Screen):
         users_ref = db_ref.child('users')
         query_result = users_ref.order_by_child('username').get()
 
-        matched = False  #追踪是否找到匹配的用户名和密码
+        user_exists = False  #追踪是否找到匹配的用户名和密码
         query_username = None
-        query_password = None
 
         if query_result:
             for result in query_result.values():
                 query_username = result['username']
-                query_password = result['password']
-                if query_username == username and query_password == password:
-                    
-                    matched = True
+                #query_password = result['password']
+                if query_username == username:
+                    user_exists = True
                     break
                 
-        if matched:
-            MDApp.get_running_app().switch_screen("navigator")
-            self.show_success_popup
+        if user_exists:
+            query_password = result['password']
+            if query_password == password:
+                MDApp.get_running_app().switch_screen("navigator")
+                self.show_success_popup()
 
-        elif query_username != username or query_password != password:
-            dialog1 = MDDialog(
-                        title = 'Warning',
-                        text = 'Password incorrect!',
-                        buttons = [
-                            MDRaisedButton(
-                                text = 'Return',
-                                on_press = lambda x: dialog1.dismiss(),
-                            )
-                        ]
-                    )
-            dialog1.open()
+            else:
+                query_username != username or query_password != password
+                dialog1 = MDDialog(
+                            title = 'Warning',
+                            text = 'Password incorrect!',
+                            buttons = [
+                                MDRaisedButton(
+                                    text = 'Return',
+                                    on_press = lambda x: dialog1.dismiss(),
+                                )
+                            ]
+                        )
+                dialog1.open()
 
         else:
             dialog2 = MDDialog(
@@ -74,7 +75,7 @@ class Login(Screen):
                     MDRaisedButton(
                         text='Register',
                         on_press=lambda x: dialog2.dismiss(),
-                        on_release = MDApp.get_running_app().switch_screen("register"),
+                        on_release = lambda x: MDApp.get_running_app().switch_screen("register"),
                         
                     ),
                     MDRaisedButton(
@@ -99,20 +100,7 @@ class Login(Screen):
 
     
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-class ClickableTextFieldRound(Screen):
+class ClickableTextFieldRound1(Screen):
     text = StringProperty()
     
 
