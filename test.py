@@ -74,7 +74,7 @@ class Test(MDApp):
 
         # screen.add_widget(self.list) # <- widget测试专用(List, Cart, Me)
 
-        self.root.add_widget(self.detail) # <- screen测试请修改这里(Login, Register, Detail, Order, Update)
+        self.root.add_widget(self.login) # <- screen测试请修改这里(Login, Register, Detail, Order, Update)
 
         return self.root
     
