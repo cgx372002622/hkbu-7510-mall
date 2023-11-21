@@ -38,7 +38,12 @@ class Mall(MDApp):
     price_text_color = ListProperty([255 / 255, 68 / 255, 0 / 255, 1]) # 价格字体颜色
 
     def build(self):
-        from .screens import cart, detail, list, login, me, register, update, order, navigator
+
+        from app.screens import detail, login, register, update, order, navigator
+        from app.widgets import cart, me, list
+        from app.utils import MuskLayout
+
+        self.muskLayout = MuskLayout()
 
         self.root = ScreenManager()
 
@@ -64,7 +69,9 @@ class Mall(MDApp):
             'navigator': self.navigator
         }
 
-        self.root.switch_to(self.login)
+        # screen.add_widget(self.list) # <- widget测试专用(List, Cart, Me)
+
+        self.root.add_widget(self.detail) # <- screen测试请修改这里(Login, Register, Detail, Order, Update)
 
         return self.root
     

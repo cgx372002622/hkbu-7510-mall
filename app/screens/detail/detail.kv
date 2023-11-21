@@ -1,8 +1,13 @@
 #:import Window kivy.core.window.Window
 
 <Detail>:
-    id: 'goods-1'
-    picUrl: 'https://firebasestorage.googleapis.com/v0/b/comp7510-mall.appspot.com/o/mall%2Fgoods-1.jpg?alt=media&token=0f37acb5-8bdc-4228-ad84-31acd4955975'
+    detail_id: 'goods-1'
+    picUrl: ''
+    detail_name: ''
+    price: ''
+    store: ''
+    description: ''
+    comments: None
 
     MDBoxLayout:
         size_hint: (1, 1)
@@ -32,21 +37,28 @@
                     padding: app.padding_md
 
                     MDLabel:
-                        text: '$ 5'
+                        text: '$ ' + root.price
                         size_hint: ((1, None))
                         color: app.price_text_color
                         font_size: app.font_size_lg
-                        height: app.font_size
+                        height: self.texture_size[1]
 
                     MDLabel:
-                        text: 'Apple'
+                        text: root.detail_name
                         size_hint: (1, None)
                         color: app.main_text_color
                         font_size: app.font_size
-                        height: app.font_size
+                        height: self.texture_size[1]
 
                     MDLabel:
-                        text: 'An apple a day, keep the doctor away!!!!!!!!!!An apple a day, keep the doctor away!!!!!!!!!!An apple a day, keep the doctor away!!!!!!!!!!An apple a day, keep the doctor away!!!!!!!!!!An apple a day, keep the doctor away!!!!!!!!!!An apple a day, keep the doctor away!!!!!!!!!!'
+                        text: root.store
+                        size_hint: (1, None)
+                        color: app.quaternary_text_color
+                        font_size: app.font_size_sm
+                        height: self.texture_size[1]
+
+                    MDLabel:
+                        text: root.description
                         size_hint: (1, None)
                         color: app.tertiary_text_color
                         font_size: app.font_size_sm
@@ -57,7 +69,7 @@
                     size_hint: (1, None)
                     height: self.minimum_height
                     orientation: 'vertical'
-                    spacing: dp((Window.height/1080)*20)
+                    spacing: dp((Window.height/1080)*30)
                     padding: app.padding_md
 
                     MDLabel:
@@ -70,63 +82,29 @@
                     MDBoxLayout:
                         size_hint: (1, None)
                         height: self.minimum_height
-                        orientation: 'vertical'
+                        orientation: 'horizontal'
+
+                        MDTextField:
+                            id: comment
+                            hint_text: "Add your comment"
+                            mode: "rectangle"
+                            size_hint: 0.7, None
+                            font_size: app.font_size_sm
+                            on_focus: root.comment_on_focus(self, self.focus)
+
+                        MDIconButton:
+                            icon: "pencil"
+                            pos_hint: {"center_x": .5, "center_y": .5}
+                            size_hint: 0.2, None
+                            type: 'small'
+                            on_release: root.make_a_comment()
+
+                    MDBoxLayout:
                         spacing: dp((Window.height/1080)*20)
-
-                        MDBoxLayout:
-                            size_hint: (1, None)
-                            height: self.minimum_height
-                            orientation: 'horizontal'
-
-                            MDTextField:
-                                id: comment
-                                hint_text: "Add your comment"
-                                mode: "rectangle"
-                                size_hint: 0.7, None
-                                font_size: app.font_size_sm
-                                on_focus: root.comment_on_focus(self, self.focus)
-
-                            MDIconButton:
-                                icon: "pencil"
-                                pos_hint: {"center_x": .5, "center_y": .5}
-                                size_hint: 0.2, None
-                                type: 'small'
-                                on_release: root.make_a_comment()
-
-                        MDLabel:
-                            text: '1. good good good good '
-                            size_hint: (1, None)
-                            color: app.main_text_color
-                            font_size: app.font_size_sm
-                            height: app.font_size_sm
-
-                        MDLabel:
-                            text: '2. bad bad bad bad '
-                            size_hint: (1, None)
-                            color: app.main_text_color
-                            font_size: app.font_size_sm
-                            height: app.font_size_sm    
-
-                        MDLabel:
-                            text: '3. bad bad bad bad '
-                            size_hint: (1, None)
-                            color: app.main_text_color
-                            font_size: app.font_size_sm
-                            height: app.font_size_sm   
-
-                        MDLabel:
-                            text: '4. bad bad bad bad '
-                            size_hint: (1, None)
-                            color: app.main_text_color
-                            font_size: app.font_size_sm
-                            height: app.font_size_sm   
-
-                        MDLabel:
-                            text: '5. bad bad bad bad '
-                            size_hint: (1, None)
-                            color: app.main_text_color
-                            font_size: app.font_size_sm
-                            height: app.font_size_sm                   
+                        size_hint: (1, None)
+                        orientation: 'vertical'
+                        id: comment_box
+                        height: self.minimum_height
 
         MDStackLayout:
             size_hint: ((1, None))
@@ -157,3 +135,50 @@
             md_bg_color: app.main_bg_color
             icon_color: app.main_text_color
             on_press: root.go_back()
+
+<Comment>
+    content: None
+    time: None
+    username: None
+    size_hint: (1, None)
+    orientation: 'vertical'
+    height: box1.height + box2.height
+    spacing: app.padding_xs
+
+    MDBoxLayout:
+        id: box1
+        size_hint: (1, None)
+        height: content.height
+
+        MDLabel:
+            id: content
+            text: root.content if root.content else ''
+            size_hint: (1, None)
+            color: app.main_text_color
+            font_size: app.font_size
+            height: self.texture_size[1]
+    
+    MDBoxLayout:
+        id: box2
+        size_hint: (1, None)
+        height: time.height
+        orientation: 'horizontal'
+
+        MDLabel:
+            size_hint_x: 0.4
+        MDLabel:
+            id: time
+            text: root.time if root.time else ''
+            size_hint_x: 0.3
+            color: app.tertiary_text_color
+            font_size: app.font_size_sm
+            height: self.texture_size[1]
+        MDLabel:
+            size_hint_x: 0.01
+        MDLabel:
+            id: username
+            text: root.username if root.username else ''
+            size_hint_x: 0.2
+            color: app.tertiary_text_color
+            font_size: app.font_size_sm
+            height: self.texture_size[1]

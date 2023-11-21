@@ -39,11 +39,11 @@ class Test(MDApp):
     price_text_color = ListProperty([255 / 255, 68 / 255, 0 / 255, 1]) # 价格字体颜色
 
     def build(self):
-        self.title = 'My Mall'
-        icon = 'app/icon.icow'
-
         from app.screens import detail, login, register, update, order, navigator
         from app.widgets import cart, me, list
+        from app.utils import MuskLayout
+
+        self.muskLayout = MuskLayout()
 
         self.root = ScreenManager()
 
