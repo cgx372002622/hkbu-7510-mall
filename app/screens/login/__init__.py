@@ -52,10 +52,9 @@ class Login(Screen):
             query_password = result['password']
             if query_password == password:
                 username = self.ids.text_username.text
-                # TODO 因为下面的存入当前用户信息的代码需要去数据库请求数据，所以最好在这里给个弹窗，弹窗里弄个Spinner转圈圈，等下面
-                # 这行代码执行完，再关闭弹窗。不然的话，点击登录按钮，页面会傻傻的干等 0 _ 0
+
                 appData.init_user(username) # 在Global中存入当前用户信息，username、nickname、address、phoneNumber
-                # TODO 在这里关闭弹窗
+                
                 MDApp.get_running_app().switch_screen("navigator")
                 self.show_success_popup()
 
