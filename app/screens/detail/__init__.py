@@ -20,7 +20,8 @@ class Comment(MDBoxLayout):
 
 class Detail(Screen):
     app = MDApp.get_running_app()
-    add_in_cart_dialog = None
+    add_in_cart_dialog_success = None
+    add_in_cart_dialog_existed = None
     make_a_comment_dialog = None
     musk_layout = None
 
@@ -54,14 +55,50 @@ class Detail(Screen):
         self.app.switch_screen('navigator', 'right')
 
     def add_in_cart(self):
-        if not self.add_in_cart_dialog:
-            self.add_in_cart_dialog = MDDialog(
+        if not self.add_in_cart_dialog_success:
+            self.add_in_cart_dialog_success = MDDialog(
                 text = 'Add In Cart Successfully!',
                 buttons = [],
                 radius = [20, 20, 20, 20]
             )
-        self.add_in_cart_dialog.open()
-        threading.Timer(1, self.add_in_cart_dialog.dismiss).start()
+        if not self.add_in_cart_dialog_existed:
+            self.add_in_cart_dialog_existed = MDDialog(
+                text = 'This item has been existed in your cart!',
+                buttons = [],
+                radius = [20, 20, 20, 20]
+            )
+        users_ref = db_ref.child('users').get()
+        print(users_ref)
+        user_key = ''
+        for k, v in users_ref.items():
+            if v['username'] == appData.current_user:
+                user_key = k
+                break
+        cart_ref = db_ref.child('users/' + user_key + '/cart')
+        cart = cart_ref.get()
+        if cart is None:
+            cart_ref.push({
+                'goodsId': self.detail_id,
+                'count': 1
+            })
+            self.add_in_cart_dialog_success.open()
+            threading.Timer(1, self.add_in_cart_dialog_success.dismiss).start()
+        else:
+            is_exist = False
+            for k, v in cart.items():
+                if v['goodsId'] == self.detail_id:
+                    is_exist = True
+                    break
+            if is_exist:
+                self.add_in_cart_dialog_existed.open()
+                threading.Timer(1.5, self.add_in_cart_dialog_existed.dismiss).start()
+            else:
+                cart_ref.push({
+                    'goodsId': self.detail_id,
+                    'count': 1
+                })
+                self.add_in_cart_dialog_success.open()
+                threading.Timer(1, self.add_in_cart_dialog_success.dismiss).start()
 
     def make_a_comment(self):
         comment_field = self.ids.comment
@@ -116,9 +153,6 @@ class Detail(Screen):
     def comment_on_focus(self, instance, status):
         if not status:
             instance.error = False
-
-    def go_buy(self):
-        ...
 
 file_path = os.path.dirname(__file__)
 
