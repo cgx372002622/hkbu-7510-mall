@@ -83,7 +83,7 @@ class Detail(Screen):
             threading.Timer(1, self.make_a_comment_dialog.dismiss).start()
             self.ids.comment.text = ''
             db_ref.child('goods/' + self.detail_id + '/comments').push({
-                'username': appData.current_user,
+                'username': appData.current_nickname,
                 'time': formatted_time,
                 'content': comment
             })

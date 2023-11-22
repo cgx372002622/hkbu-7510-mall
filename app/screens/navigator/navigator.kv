@@ -13,8 +13,9 @@
 
             MDBottomNavigationItem:
                 name: "screen 2"
-                on_tab_release: root.ids.list.initiation()
-
+                on_enter: list.initiation()
+                on_leave: list.clear()
+                
                 List:
                     id: list
 

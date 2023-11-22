@@ -4,8 +4,10 @@ from kivymd.uix.boxlayout import BoxLayout
 from kivymd.uix.list.list import ThreeLineAvatarListItem, ImageLeftWidget
 
 from kivymd.app import MDApp
+from kivy.clock import Clock
 
 from app.utils.database import db_ref
+from app.components import SpinnerDialog
 
 class Item(ThreeLineAvatarListItem):
     pass
@@ -14,11 +16,23 @@ class List(BoxLayout):
 
     app = MDApp.get_running_app()
 
+    def clear(self):
+        container = self.ids.get('list_container')
+        container.clear_widgets()
+
     def initiation(self):
-        self.generate_list()
+        self.render_list()
 
     def on_text_validate(self, query):
-        self.generate_list(query)
+        self.render_list(query)
+
+    def render_list(self, query=None):
+        spinnerDialog = SpinnerDialog()
+        spinnerDialog.show()
+
+        Clock.schedule_once(lambda x: self.generate_list(query), 0.5)
+
+        Clock.schedule_once(lambda x: spinnerDialog.hide(), 1)
 
     def generate_list(self, query=None):
         container = self.ids.get('list_container')
