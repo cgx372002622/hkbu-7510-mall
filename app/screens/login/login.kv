@@ -1,17 +1,21 @@
 <Login>:
-    BoxLayout:
+    MDBoxLayout:
         orientation: 'vertical'
-        spacing:'10dp' 
+        spacing: '0dp'
+        padding: '0dp'
+        size_hint_y: 1
 
         MDTopAppBar:
             title:"Login"
             md_bg_color: app.header_bg_color
             padding: app.padding_md
 
-        BoxLayout:
+
+        MDBoxLayout:
             orientation: 'vertical'
             spacing:'20dp'
             padding:'15dp'
+            size_hint_y: 0.9
 
             Image:
                 size_hint: None,None
@@ -26,12 +30,12 @@
                 helper_text: "Please input your username"
                 helper_text_mode: "persistent"
                 border_color: app.border_color
-                icon_right: 'user'
+                icon_left: 'account'
                 mode: "rectangle"
 
             #ContentTextField:
                 #id: text_username
-                #icon_right: 'Me.png'
+                #icon_left: 'Me.png'
                 #hint_text: "Enter your username"
                 #helper_text: "Please input your password"
                 #helper_text_mode: "persistent"    
@@ -50,31 +54,48 @@
                 #size_hint: 1,None
                 #password: True
 
-            BoxLayout:
+            MDBoxLayout:
                 orientation: 'horizontal'
-                spacing: '30dp'
-                padding: '20dp'
+                spacing: '10dp'
+                padding: '0dp'
+                size_hint_y: 0.1
+                md_bg_color: app.bottom_bg_color
 
-                MDFillRoundFlatButton:
+                MDRectangleFlatIconButton:
                     text: 'Login'
                     halign: 'center'
+                    icon: 'fingerprint'
+                    icon_color: 1,1,1,1
                     text_color: app.main_btn_font_color
                     md_bg_color: 'green'
-                    font_size: '20dp'
-                    size_hint: 1,None
-                    pos_hint: {'x':0,'y':0.8}
-                    #on_press: app.switch_screen('navigator','left')
+                    font_size: app.font_size_lg
+                    size_hint: 0.3,None
+                    #pos_hint: {'x':0,'y':0.8}
                     on_press: root.login_vertify()
 
-                MDFillRoundFlatButton:
-                    text: 'Register'
+                MDRectangleFlatIconButton:
+                    text: 'Sign up'
                     halign: 'center'
+                    icon: 'account'
+                    icon_color: 1,1,1,1
                     text_color: 'white'
                     md_bg_color: 'blue'
-                    font_size: '20dp'
-                    size_hint: 1,None
-                    pos_hint: {'x':1,'y':0.8}
+                    font_size: app.font_size_lg
+                    size_hint: 0.3,None
+                    #pos_hint: {'x':1,'y':0.8}
                     on_press: app.switch_screen('register','left')
+
+                MDRectangleFlatIconButton:
+                    text: 'Clean'
+                    halign: 'center'
+                    icon: 'delete'
+                    icon_color: 1,1,1,1
+                    text_color: 'white'
+                    md_bg_color: 'red'
+                    font_size: '20dp'
+                    size_hint: 0.3,None
+                    #pos_hint: {'x':1,'y':0.8}
+                    on_press: root.clean()
 
 
 <ContentTextField@MDTextField>:
@@ -101,7 +122,7 @@
     MDTextField:
         id: text_field
         text: root.text
-        hint_text: "password"
+        hint_text: "Password"
         password: True
         icon_left: "key-variant"
         mode: 'rectangle'

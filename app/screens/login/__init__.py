@@ -11,6 +11,7 @@ from kivymd.uix.boxlayout import BoxLayout
 from kivy.clock import Clock
 from kivy.uix.label import Label
 from kivy.uix.popup import Popup
+from app.Global import appData
 
 
 class Login(Screen):
@@ -50,6 +51,7 @@ class Login(Screen):
         if user_exists:
             query_password = result['password']
             if query_password == password:
+                appData.current_user = self.ids.text_username.text      #传入当前用户
                 MDApp.get_running_app().switch_screen("navigator")
                 self.show_success_popup()
 
@@ -97,6 +99,10 @@ class Login(Screen):
 
             popup.open()
             Clock.schedule_once(lambda dt: popup.dismiss(), 2)
+
+    def clean(self):
+        self.ids.text_username.text = ''
+        self.ids.text_password.ids.text_field.text = ''
 
     
 

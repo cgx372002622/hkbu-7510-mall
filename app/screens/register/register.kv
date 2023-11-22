@@ -3,7 +3,7 @@
     MDBoxLayout:
         orientation: "vertical"
         md_bg_color: app.main_bg_color
-        spacing:'10dp'  #只能在父类设置
+        spacing:'0dp'  #只能在父类设置
         spacing:'0dp'
         size_hint_y: 1
 
@@ -19,7 +19,7 @@
             spacing:'15dp'
             padding:'15dp'
             size_hint_y: 0.8
-            md_bg_color: "#5bc0f6"
+            #md_bg_color: "#5bc0f6"
 
             Image:
                 size_hint: None,None
@@ -30,7 +30,6 @@
             MDTextField:
                 id: text_username
                 hint_text: "Username"
-                #size_hint: 1, None
                 helper_text: "Please input your username max length 8"
                 helper_text_mode: "persistent"
                 mode: "rectangle"
@@ -87,30 +86,34 @@
 
         MDBoxLayout:
             orientation:'horizontal'
-            spacing: '0dp'
-            padding: '0dp'
+            spacing: '10dp'
+            padding: '15dp'
             size_hint_y: 0.1
             md_bg_color: app.bottom_bg_color
 
-            MDRectangleFlatButton:
+            MDRectangleFlatIconButton:
                 text:'Sign up'
-                halign:'center'
+                icon: 'account'
+                halign: 'center'
                 text_color: 'white'
-                md_bg_color:'green'
+                icon_color: 1,1,1,1
+                md_bg_color: 'green'
                 font_size: app.font_size_lg
-                size_hint: 0.8,None
-                pos_hint: {'x':0,'y':0.1}
+                size_hint: 0.3, None
+                #pos_hint: {'x':0,'y':0.1}
                 on_press: root.submit_data()
 
-            MDRectangleFlatButton:
-                text:'Cancel'
-                halign:'center'
+            MDRectangleFlatIconButton:
+                text: 'Clean'
+                icon: 'delete'
+                halign: 'center'
                 text_color: 'white'
+                icon_color: 1,1,1,1
                 md_bg_color:'red'
-                font_size:app.font_size_lg
-                size_hint:0.8,None
-                pos_hint:{'x':1,'y':0.1}
-                on_press:root.cancel()
+                font_size: app.font_size_lg
+                size_hint: 0.3, None
+                #pos_hint: {'x':1,'y':0.1}
+                on_press: root.cancel()
 
 
 <ContentTextField@MDTextField>:
