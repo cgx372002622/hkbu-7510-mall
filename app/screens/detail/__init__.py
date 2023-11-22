@@ -9,6 +9,7 @@ import threading
 from datetime import datetime
 
 from app.utils import db_ref
+from app.Global import appData
 
 class Comment(MDBoxLayout):
     def __init__(self, content=None, time=None, username=None, **kwargs):
@@ -82,7 +83,7 @@ class Detail(Screen):
             threading.Timer(1, self.make_a_comment_dialog.dismiss).start()
             self.ids.comment.text = ''
             db_ref.child('goods/' + self.detail_id + '/comments').push({
-                'username': 'peter',
+                'username': appData.current_user,
                 'time': formatted_time,
                 'content': comment
             })
