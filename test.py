@@ -8,6 +8,7 @@ from kivy.properties import ListProperty, StringProperty, NumericProperty
 from app.utils.database import db_ref
 
 
+
 if platform in ('win', 'macosx'):
     Window.size = (414, 736)
 
@@ -74,7 +75,7 @@ class Test(MDApp):
 
         # screen.add_widget(self.list) # <- widget测试专用(List, Cart, Me)
 
-        self.root.add_widget(self.detail) # <- screen测试请修改这里(Login, Register, Detail, Order, Update)
+        self.root.add_widget(self.login) # <- screen测试请修改这里(Login, Register, Detail, Order, Update)
 
         return self.root
     

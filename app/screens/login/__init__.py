@@ -12,6 +12,7 @@ from kivy.clock import Clock
 from kivy.uix.label import Label
 from kivy.uix.popup import Popup
 from app.Global import appData
+from app.components import SpinnerDialog
 
 
 class Login(Screen):
@@ -56,7 +57,11 @@ class Login(Screen):
                 appData.init_user(username) # 在Global中存入当前用户信息，username、nickname、address、phoneNumber
                 
                 MDApp.get_running_app().switch_screen("navigator")
-                self.show_success_popup()
+                spinnerDialog = SpinnerDialog()
+                
+                Clock.schedule_once(lambda x: spinnerDialog.show(), 0.5)
+                Clock.schedule_once(lambda x: spinnerDialog.hide(), 2)
+                #self.show_success_popup()
 
             else:
                 query_username != username or query_password != password
