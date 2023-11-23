@@ -5,20 +5,36 @@
         orientation: "vertical"
         md_bg_color: app.primary_bg_color
 
-        MDTopAppBar:
+        MDBoxLayout:
             md_bg_color: app.navigator_bg_color
+            size_hint: 1, .14
+            orientation: 'vertical'
             padding: app.padding_md
-            elevation: 0
 
-            MDTextField:
-                id: list_search
-                mode: "round"
-                size_hint: 0.8, None
-                pos_hint: {"center_x": .5}
-                fill_color_normal: app.primary_bg_color
-                hint_text_color_normal: app.placeholder_text_color
-                text_color_normal: app.primary_font_color
-                on_text_validate: root.on_text_validate(list_search.text)
+            MDRelativeLayout:
+                size_hint_y: None
+                height: list_search.height
+                size_hint_x: .8
+                pos_hint: {"center_x": .5, "center_y": .5}
+
+                MDTextField:
+                    id: list_search
+                    mode: "fill"
+                    size_hint_x: 1
+                    pos_hint: {"center_x": .5, 'center_y': .5}
+                    fill_color_normal: app.input_color
+                    hint_text_color_normal: app.placeholder_text_color
+                    text_color_normal: app.primary_font_color
+                    on_text_validate: root.on_text_validate(list_search.text)
+                    radius: [10, 10, 10, 10]
+                    hint_text: 'Start your shopping journey now.'
+
+                MDIconButton:
+                    icon: "close-circle-outline" if list_search.text is not None and len(list_search.text) > 0 else "refresh"
+                    pos_hint: {"center_y": .5}
+                    pos: list_search.width - self.width + dp(8), 0
+                    theme_text_color: "Hint"
+                    on_release: root.do_refresh(list_search) if list_search.text is not None and len(list_search.text) > 0 else root.initiation()
 
         ScrollView:
             Column:

@@ -21,10 +21,11 @@
                 height: self.minimum_height
                 spacing: dp((Window.height/1080)*20)
 
-                MDBoxLayout:
+                MDCard:
                     size_hint: 1, None
                     height: self.minimum_height
                     md_bg_color: app.primary_bg_color
+                    elevation: 1
 
                     AsyncImage:
                         source: root.picUrl
@@ -33,13 +34,14 @@
                         allow_stretch: True
                         nocache: False
 
-                MDBoxLayout:
+                MDCard:
                     md_bg_color: app.primary_bg_color
                     size_hint: ((1, None))
                     height: self.minimum_height
                     orientation: 'vertical'
                     spacing: dp((Window.height/1080)*20)
                     padding: app.padding_md
+                    elevation: 1
 
                     MDLabel:
                         text: '$ ' + root.price
@@ -52,7 +54,7 @@
                         text: root.detail_name
                         size_hint: (1, None)
                         color: app.primary_font_color
-                        font_size: app.font_size
+                        font_size: app.font_size_md
                         height: self.texture_size[1]
 
                     MDLabel:
@@ -66,16 +68,17 @@
                         text: root.description
                         size_hint: (1, None)
                         color: app.tertiary_text_color
-                        font_size: app.font_size_sm
+                        font_size: app.font_size
                         height: self.texture_size[1]
 
-                MDBoxLayout:
+                MDCard:
                     md_bg_color: app.primary_bg_color
                     size_hint: (1, None)
                     height: self.minimum_height
                     orientation: 'vertical'
                     spacing: dp((Window.height/1080)*30)
                     padding: app.padding_md
+                    elevation: 1
 
                     MDLabel:
                         text: 'Comment'
@@ -83,6 +86,7 @@
                         color: app.primary_font_color
                         font_size: app.font_size_lg
                         height: app.font_size_lg
+                        bold: True
 
                     MDBoxLayout:
                         size_hint: (1, None)
@@ -115,7 +119,7 @@
             size_hint: ((1, None))
             md_bg_color: app.navigator_bg_color
             spacing: app.padding_xs
-            padding: app.padding_xs
+            padding: app.padding_xs, app.padding_xs, app.padding_lg, app.padding_xs
             orientation: 'rl-bt'
             height: self.minimum_height
 
@@ -124,11 +128,13 @@
                 icon: 'cart'
                 md_bg_color: app.primary_btn_bg_color
                 theme_icon_color: 'Custom'
-                icon_color: app.primary_font_color
+                icon_color: app.primary_btn_font_color
                 theme_text_color: 'Custom'
-                text_color: app.primary_font_color
+                text_color: app.primary_btn_font_color
                 on_press: root.add_in_cart()
                 size_hint: None, .8
+                font_style: 'Button'
+                bold: True
 
     MDBoxLayout:
         adaptive_size: True

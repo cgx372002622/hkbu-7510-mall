@@ -16,6 +16,9 @@ class List(BoxLayout):
 
     app = MDApp.get_running_app()
 
+    def do_refresh(self, list_search):
+        list_search.text = ''
+
     def clear(self):
         container = self.ids.get('list_container')
         container.clear_widgets()
@@ -50,7 +53,7 @@ class List(BoxLayout):
                 ),
                 id = d.get('id'),
                 text = d.get('name'),
-                secondary_text = str(d.get('price')),
+                secondary_text = '$ ' + str(d.get('price')),
                 tertiary_text = d.get('store'),
                 on_press= lambda x: self.app.get_screen('detail').init_item(x.id),
                 on_release = lambda x: self.app.switch_screen('detail')

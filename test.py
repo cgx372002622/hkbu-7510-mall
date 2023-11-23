@@ -29,6 +29,7 @@ class Test(MDApp):
     secondary_font_color = ListProperty([138 / 255, 138 / 255, 141 / 255, 1]) # 次级字体颜色
     tertiary_text_color = ListProperty([0 / 255, 0 / 255, 0 / 255, 0.45]) # 第三级文本色一般用于描述性文本，例如表单的中的补充说明文本、列表的描述性文本等场景。
     quaternary_text_color = ListProperty([0 / 255, 0 / 255, 0 / 255, 0.25]) # 第四级文本色是最浅的文本色，例如表单的输入提示文本
+    input_color = ListProperty([239 / 255, 239 / 255, 239 / 255, 1]) # 输入框颜色
     placeholder_text_color = ListProperty([0 / 255, 0 / 255, 0 / 255, 0.25]) # 控制占位文本的颜色
     padding_xxs = NumericProperty(4) # 极小间距
     padding_xs = NumericProperty(8) # 特小间距
