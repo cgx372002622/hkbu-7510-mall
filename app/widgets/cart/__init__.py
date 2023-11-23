@@ -7,6 +7,7 @@ from kivymd.uix.button import MDIconButton
 from kivy.lang import Builder
 from kivymd.app import MDApp
 from kivy.clock import Clock
+from kivymd.uix.card import MDCard
 
 from app.utils import db_ref
 from app.Global import appData
@@ -42,7 +43,7 @@ class ItemContent(ButtonBehavior, MDBoxLayout):
 class ItemCheck(MDCheckbox):
     pass
 
-class CartItem(MDBoxLayout):
+class CartItem(MDCard):
     pass
 
 class Cart(MDBoxLayout):

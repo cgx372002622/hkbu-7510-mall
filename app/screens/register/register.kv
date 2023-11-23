@@ -2,14 +2,14 @@
 
     MDBoxLayout:
         orientation: "vertical"
-        md_bg_color: app.main_bg_color
+        md_bg_color: app.primary_bg_color
         spacing:'0dp'  #只能在父类设置
         spacing:'0dp'
         size_hint_y: 1
 
         MDTopAppBar:
             title:"Register"
-            md_bg_color: app.header_bg_color
+            md_bg_color: app.navigator_bg_color
             padding: app.padding_md
             size_hint:1,None
             left_action_items:[["arrow-left", lambda x:app.switch_screen('login','left')]]
@@ -35,7 +35,7 @@
                 mode: "rectangle"
                 max_text_length: 16
                 icon_left: 'account'
-                #fill_color_normal: app.main_bg_color
+                #fill_color_normal: app.primary_bg_color
                 #hint_text_color_normal: app.placeholder_text_color
                 multiline: False
 
@@ -90,7 +90,7 @@
             spacing: '10dp'
             padding: '15dp'
             size_hint_y: 0.1
-            md_bg_color: app.bottom_bg_color
+            md_bg_color: app.navigator_bg_color
 
             MDRectangleFlatIconButton:
                 text:'Sign up'

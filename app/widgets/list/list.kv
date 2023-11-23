@@ -3,10 +3,10 @@
 <List>:
     MDBoxLayout:
         orientation: "vertical"
-        md_bg_color: app.main_bg_color
+        md_bg_color: app.primary_bg_color
 
         MDTopAppBar:
-            md_bg_color: app.header_bg_color
+            md_bg_color: app.navigator_bg_color
             padding: app.padding_md
 
             MDTextField:
@@ -14,9 +14,9 @@
                 mode: "round"
                 size_hint: 0.8, None
                 pos_hint: {"center_x": .5}
-                fill_color_normal: app.main_bg_color
+                fill_color_normal: app.primary_bg_color
                 hint_text_color_normal: app.placeholder_text_color
-                text_color_normal: app.main_text_color
+                text_color_normal: app.primary_font_color
                 on_text_validate: root.on_text_validate(list_search.text)
 
         ScrollView:

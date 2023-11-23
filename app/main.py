@@ -15,13 +15,13 @@ class Mall(MDApp):
     icon = 'app/icon.ico'
 
     # style
-    header_bg_color = ListProperty([231 / 255, 225 / 255, 227 / 255, 1]) # 头部背景颜色
-    main_bg_color = ListProperty([255 / 255, 255 / 255, 255 / 255, 1]) # 主体背景颜色
-    second_bg_color = ListProperty([240 / 255, 240 / 255, 240 / 255, 1]) # 二级主体背景颜色
-    bottom_bg_color = ListProperty([249 / 255, 245 / 255, 245 / 255, 1]) # 底部背景颜色
-    main_btn_bg_color = ListProperty([251 / 255, 155 / 255, 42 / 255, 1]) # 主按钮背景颜色
-    main_btn_font_color = ListProperty([255 / 255, 255 / 255, 255 / 255, 1]) # 主按钮字体颜色
-    main_text_color = ListProperty([0 / 255, 0 / 255, 0 / 255, 0.88]) # 最深的文本色，默认的文本颜色
+    navigator_bg_color = ListProperty([231 / 255, 225 / 255, 227 / 255, 1]) # 头部背景颜色
+    primary_bg_color = ListProperty([255 / 255, 255 / 255, 255 / 255, 1]) # 主体背景颜色
+    secondary_bg_color = ListProperty([240 / 255, 240 / 255, 240 / 255, 1]) # 二级主体背景颜色
+    navigator_bg_color = ListProperty([249 / 255, 245 / 255, 245 / 255, 1]) # 底部背景颜色
+    primary_btn_bg_color = ListProperty([251 / 255, 155 / 255, 42 / 255, 1]) # 主按钮背景颜色
+    primary_btn_font_color = ListProperty([255 / 255, 255 / 255, 255 / 255, 1]) # 主按钮字体颜色
+    primary_font_color = ListProperty([0 / 255, 0 / 255, 0 / 255, 0.88]) # 最深的文本色，默认的文本颜色
     tertiary_text_color = ListProperty([0 / 255, 0 / 255, 0 / 255, 0.45]) # 第三级文本色一般用于描述性文本，例如表单的中的补充说明文本、列表的描述性文本等场景。
     quaternary_text_color = ListProperty([0 / 255, 0 / 255, 0 / 255, 0.25]) # 第四级文本色是最浅的文本色，例如表单的输入提示文本
     placeholder_text_color = ListProperty([0 / 255, 0 / 255, 0 / 255, 0.25]) # 控制占位文本的颜色

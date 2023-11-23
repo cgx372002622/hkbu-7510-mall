@@ -7,7 +7,7 @@
 
         MDTopAppBar:
             title:"Login"
-            md_bg_color: app.header_bg_color
+            md_bg_color: app.navigator_bg_color
             padding: app.padding_md
 
 
@@ -59,14 +59,14 @@
                 spacing: '10dp'
                 padding: '0dp'
                 size_hint_y: 0.1
-                md_bg_color: app.bottom_bg_color
+                md_bg_color: app.navigator_bg_color
 
                 MDRectangleFlatIconButton:
                     text: 'Login'
                     halign: 'center'
                     icon: 'fingerprint'
                     icon_color: 1,1,1,1
-                    text_color: app.main_btn_font_color
+                    text_color: app.primary_btn_font_color
                     md_bg_color: 'green'
                     font_size: app.font_size_lg
                     size_hint: 0.3,None

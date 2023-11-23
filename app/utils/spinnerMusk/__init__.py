@@ -11,7 +11,7 @@ class SpinnerMusk(MDFloatLayout):
             active=True
         )
         self.size_hint = [1, 1]
-        self.md_bg_color = MDApp.get_running_app().main_bg_color
+        self.md_bg_color = MDApp.get_running_app().primary_bg_color
         self.add_widget(self.spinner)
 
     def show(self, screen):

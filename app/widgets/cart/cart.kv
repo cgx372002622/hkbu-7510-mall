@@ -3,14 +3,17 @@
 <Cart>:
     size_hint: (1, 1)
     orientation: 'vertical'
-    md_bg_color: app.second_bg_color
+    md_bg_color: app.secondary_bg_color
     itemChecks: []
     cartItem_box: None
 
     MDTopAppBar:
-        md_bg_color: app.header_bg_color
+        md_bg_color: app.navigator_bg_color
         padding: app.padding_md
         title: 'Cart'
+        theme_text_color: 'Custom'
+        text_color: app.primary_font_color
+        theme_text_font_style: 'H6'
         elevation: 0
 
     MDScrollView:
@@ -24,7 +27,7 @@
 
     MDBoxLayout:
         size_hint: ((1, None))
-        md_bg_color: app.main_bg_color
+        md_bg_color: app.primary_bg_color
         spacing: app.padding_xs
         padding: app.padding_xs
         height: self.minimum_height
@@ -47,11 +50,11 @@
         MDFillRoundFlatIconButton:
             text: 'BUY'
             icon: 'currency-usd'
-            md_bg_color: app.main_btn_bg_color
+            md_bg_color: app.primary_btn_bg_color
             theme_icon_color: 'Custom'
-            icon_color: app.main_text_color
+            icon_color: app.primary_font_color
             theme_text_color: 'Custom'
-            text_color: app.main_text_color
+            text_color: app.primary_font_color
             on_press: root.go_buy()
             size_hint: None, .8
             pos_hint: {'center_y': .5}
@@ -59,9 +62,10 @@
 <CartItem>:
     size_hint: 1, None
     height: Window.height / 5
-    md_bg_color: app.main_bg_color
+    md_bg_color: app.primary_bg_color
     padding: dp((Window.height/1080)*10)
-    radius: 20
+    radius: 25
+    elevation: 3
 
 <ItemCheck>:
     size_hint: 1, 0.2
@@ -96,7 +100,7 @@
             size_hint: 1, .7
             MDLabel:
                 text: root.goods_name
-                text_color: app.main_text_color
+                text_color: app.primary_font_color
                 font_size: app.font_size
                 size_hint: 1, 1
                 pos_hint: {'center_y': .9}
@@ -131,7 +135,7 @@
 <Empty>:
     size_hint: 1, None
     height: Window.height / 1.5
-    md_bg_color: app.main_bg_color
+    md_bg_color: app.primary_bg_color
     radius: 20
     orientation: 'vertical'
 

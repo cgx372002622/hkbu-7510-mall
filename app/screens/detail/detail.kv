@@ -29,7 +29,7 @@
                     nocache: False
 
                 MDBoxLayout:
-                    md_bg_color: app.main_bg_color
+                    md_bg_color: app.primary_bg_color
                     size_hint: ((1, None))
                     height: self.minimum_height
                     orientation: 'vertical'
@@ -46,7 +46,7 @@
                     MDLabel:
                         text: root.detail_name
                         size_hint: (1, None)
-                        color: app.main_text_color
+                        color: app.primary_font_color
                         font_size: app.font_size
                         height: self.texture_size[1]
 
@@ -65,7 +65,7 @@
                         height: self.texture_size[1]
 
                 MDBoxLayout:
-                    md_bg_color: app.main_bg_color
+                    md_bg_color: app.primary_bg_color
                     size_hint: (1, None)
                     height: self.minimum_height
                     orientation: 'vertical'
@@ -75,7 +75,7 @@
                     MDLabel:
                         text: 'Comment'
                         size_hint: (1, None)
-                        color: app.main_text_color
+                        color: app.primary_font_color
                         font_size: app.font_size_lg
                         height: app.font_size_lg
 
@@ -108,7 +108,7 @@
 
         MDStackLayout:
             size_hint: ((1, None))
-            md_bg_color: app.bottom_bg_color
+            md_bg_color: app.navigator_bg_color
             spacing: app.padding_xs
             padding: app.padding_xs
             orientation: 'rl-bt'
@@ -117,11 +117,11 @@
             MDFillRoundFlatIconButton:
                 text: 'ADD'
                 icon: 'cart'
-                md_bg_color: app.main_btn_bg_color
+                md_bg_color: app.primary_btn_bg_color
                 theme_icon_color: 'Custom'
-                icon_color: app.main_text_color
+                icon_color: app.primary_font_color
                 theme_text_color: 'Custom'
-                text_color: app.main_text_color
+                text_color: app.primary_font_color
                 on_press: root.add_in_cart()
                 size_hint: None, .8
 
@@ -131,8 +131,8 @@
 
         MDFloatingActionButton:
             icon: 'arrow-left'
-            md_bg_color: app.main_bg_color
-            icon_color: app.main_text_color
+            md_bg_color: app.primary_bg_color
+            icon_color: app.primary_font_color
             on_press: root.go_back()
 
 <Comment>
@@ -153,7 +153,7 @@
             id: content
             text: root.content if root.content else ''
             size_hint: (1, None)
-            color: app.main_text_color
+            color: app.primary_font_color
             font_size: app.font_size
             height: self.texture_size[1]
     
