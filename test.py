@@ -8,6 +8,8 @@ from kivy.properties import ListProperty, StringProperty, NumericProperty
 from kivy.loader import Loader
 
 
+
+
 if platform in ('win', 'macosx'):
     Window.size = (414, 736)
 

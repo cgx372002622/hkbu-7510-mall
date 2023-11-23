@@ -9,6 +9,8 @@
             title:"Login"
             md_bg_color: app.navigator_bg_color
             padding: app.padding_md
+            elevation: 0
+            font_name: 'set_headline_font_style'
 
 
         MDBoxLayout:
@@ -85,17 +87,17 @@
                     #pos_hint: {'x':1,'y':0.8}
                     on_press: app.switch_screen('register','left')
 
-                MDRectangleFlatIconButton:
-                    text: 'Clean'
-                    halign: 'center'
-                    icon: 'delete'
-                    icon_color: 1,1,1,1
-                    text_color: 'white'
-                    md_bg_color: 'red'
-                    font_size: '20dp'
-                    size_hint: 0.3,None
+                #MDRectangleFlatIconButton:
+                    #text: 'Clean'
+                    #halign: 'center'
+                    #icon: 'delete'
+                    #icon_color: 1,1,1,1
+                    #text_color: 'white'
+                    #md_bg_color: 'red'
+                    #font_size: '20dp'
+                    #size_hint: 0.3,None
                     #pos_hint: {'x':1,'y':0.8}
-                    on_press: root.clean()
+                    #on_press: root.clean()
 
 
 <ContentTextField@MDTextField>:
