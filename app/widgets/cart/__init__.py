@@ -40,6 +40,7 @@ class ItemContent(ButtonBehavior, MDBoxLayout):
         app = MDApp.get_running_app()
         app.get_screen('detail').init_item(itemId)
         app.switch_screen('detail')
+        
 class ItemCheck(MDCheckbox):
     pass
 
@@ -90,9 +91,9 @@ class Cart(MDBoxLayout):
                         ),
                         DeleteBtn(
                             item_id=item_id,
-                            icon='delete', 
+                            icon='delete-circle', 
                             theme_text_color='Custom', 
-                            text_color=(1, 0, 0, 1), 
+                            text_color=MDApp.get_running_app().secondary_btn_bg_color, 
                             size_hint=(1, 0.2),
                             on_press=lambda x: self.delete_on_press(x.item_id)
                         ),

@@ -5,7 +5,7 @@ from kivy.core.window import Window
 from kivy.utils import platform
 
 from kivy.properties import ListProperty, StringProperty, NumericProperty
-
+from kivy.loader import Loader
 
 
 if platform in ('win', 'macosx'):
@@ -45,6 +45,8 @@ class Test(MDApp):
         from app.screens import detail, login, register, update, navigator
         from app.widgets import cart, me, list
 
+        Loader.loading_image = Loader.image('app/resources/loading.gif')
+
         self.root = ScreenManager()
 
         self.cart = cart.Cart()
@@ -72,7 +74,7 @@ class Test(MDApp):
 
         screen.add_widget(self.cart) # <- widget测试专用(List, Cart, Me)
 
-        self.root.add_widget(self.navigator) # <- screen测试请修改这里(Login, Register, Detail, Update)
+        self.root.add_widget(self.login) # <- screen测试请修改这里(Login, Register, Detail, Update)
 
         return self.root
     

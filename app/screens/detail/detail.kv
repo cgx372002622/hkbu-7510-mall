@@ -10,23 +10,28 @@
     comments: None
 
     MDBoxLayout:
-        size_hint: (1, 1)
+        size_hint: 1, 1
         orientation: 'vertical'
 
         MDScrollView:
 
             GridLayout:
                 cols: 1
-                size_hint: ((1, None))
+                size_hint: 1, None
                 height: self.minimum_height
                 spacing: dp((Window.height/1080)*20)
 
-                AsyncImage:
-                    source: root.picUrl
-                    size_hint: ((1, None))
-                    height: Window.height / 2
-                    allow_stretch: True
-                    nocache: False
+                MDBoxLayout:
+                    size_hint: 1, None
+                    height: self.minimum_height
+                    md_bg_color: app.primary_bg_color
+
+                    AsyncImage:
+                        source: root.picUrl
+                        size_hint: 1, None
+                        height: Window.height / 2
+                        allow_stretch: True
+                        nocache: False
 
                 MDBoxLayout:
                     md_bg_color: app.primary_bg_color

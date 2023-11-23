@@ -9,12 +9,12 @@
 
     MDTopAppBar:
         md_bg_color: app.navigator_bg_color
-        padding: app.padding_md
         title: 'Cart'
         theme_text_color: 'Custom'
         text_color: app.primary_font_color
-        theme_text_font_style: 'H6'
         elevation: 0
+        anchor_title: "center"
+        specific_text_color: "black"
 
     MDScrollView:
         GridLayout:
@@ -52,12 +52,17 @@
             icon: 'currency-usd'
             md_bg_color: app.primary_btn_bg_color
             theme_icon_color: 'Custom'
-            icon_color: app.primary_font_color
+            icon_color: app.primary_btn_font_color
             theme_text_color: 'Custom'
-            text_color: app.primary_font_color
+            text_color: app.primary_btn_font_color
             on_press: root.go_buy()
             size_hint: None, .8
             pos_hint: {'center_y': .5}
+            font_style: 'Button'
+            bold: True
+
+        MDBoxLayout:
+            size_hint: .05, 1
 
 <CartItem>:
     size_hint: 1, None
@@ -65,10 +70,12 @@
     md_bg_color: app.primary_bg_color
     padding: dp((Window.height/1080)*10)
     radius: 25
-    elevation: 3
+    elevation: 2.5
 
 <ItemCheck>:
     size_hint: 1, 0.2
+    selected_color: app.primary_btn_bg_color
+    color_active: app.primary_btn_bg_color
 
 <ItemContent>:
     picUrl: 'https://firebasestorage.googleapis.com/v0/b/comp7510-mall.appspot.com/o/mall%2Fgoods-5.jpg?alt=media&token=b3383cb7-cb99-4334-b393-412ddc22ee45'
