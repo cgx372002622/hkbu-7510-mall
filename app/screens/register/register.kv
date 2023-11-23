@@ -12,7 +12,8 @@
             md_bg_color: app.navigator_bg_color
             padding: app.padding_md
             size_hint:1,None
-            left_action_items:[["arrow-left", lambda x:app.switch_screen('login','left')]]
+            elevation: 0
+            left_action_items:[["arrow-left-bold-circle", lambda x:app.switch_screen('login','left')]]
 
         MDBoxLayout:
             orientation: "vertical" 
