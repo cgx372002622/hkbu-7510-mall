@@ -2,9 +2,9 @@ from kivymd.uix.floatlayout import MDFloatLayout
 from kivymd.uix.spinner import MDSpinner
 from kivymd.app import MDApp
 
-class MuskLayout(MDFloatLayout):
+class SpinnerMusk(MDFloatLayout):
     def __init__(self, **kargs):
-        super(MuskLayout, self).__init__(**kargs)
+        super(SpinnerMusk, self).__init__(**kargs)
         self.spinner = MDSpinner(
             size_hint=[.2, .2],
             pos_hint={'center_x': .5, 'center_y': .5},
@@ -19,3 +19,5 @@ class MuskLayout(MDFloatLayout):
 
     def hide(self, screen):
         screen.remove_widget(self)
+
+spinnerMusk = SpinnerMusk()

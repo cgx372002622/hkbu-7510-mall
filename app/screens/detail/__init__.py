@@ -8,7 +8,7 @@ from kivymd.uix.boxlayout import MDBoxLayout
 import threading
 from datetime import datetime
 
-from app.utils import db_ref
+from app.utils import db_ref, spinnerMusk
 from app.Global import appData
 
 class Comment(MDBoxLayout):
@@ -29,7 +29,7 @@ class Detail(Screen):
         self.detail_id = id
 
     def on_pre_enter(self):
-        self.app.muskLayout.show(self)
+        spinnerMusk.show(self)
 
     def on_enter(self):
         detail = db_ref.child('goods/' + self.detail_id).get()
@@ -39,7 +39,7 @@ class Detail(Screen):
         self.store = detail.get('store')
         self.description = detail.get('description')
         self.render_comment()
-        self.app.muskLayout.hide(self)
+        spinnerMusk.hide(self)
 
     def on_leave(self):
         self.picUrl = ''

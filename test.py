@@ -5,7 +5,6 @@ from kivy.core.window import Window
 from kivy.utils import platform
 
 from kivy.properties import ListProperty, StringProperty, NumericProperty
-from app.utils.database import db_ref
 
 
 
@@ -42,9 +41,6 @@ class Test(MDApp):
     def build(self):
         from app.screens import detail, login, register, update, navigator
         from app.widgets import cart, me, list
-        from app.utils import MuskLayout
-
-        self.muskLayout = MuskLayout()
 
         self.root = ScreenManager()
 

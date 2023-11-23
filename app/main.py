@@ -10,8 +10,6 @@ from kivy.properties import ListProperty, StringProperty, NumericProperty
 if platform in ('win', 'macosx'):
     Window.size = (414, 736)
 
-from .Global import appData
-
 class Mall(MDApp):
     title = 'My Mall'
     icon = 'app/icon.ico'
@@ -41,9 +39,6 @@ class Mall(MDApp):
 
         from app.screens import detail, login, register, update, navigator
         from app.widgets import cart, me, list
-        from app.utils import MuskLayout
-
-        self.muskLayout = MuskLayout()
 
         self.root = ScreenManager()
 
