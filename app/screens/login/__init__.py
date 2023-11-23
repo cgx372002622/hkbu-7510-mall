@@ -16,6 +16,13 @@ from app.components import SpinnerDialog
 
 
 class Login(Screen):
+        
+    spinnerDialog = SpinnerDialog()
+
+    def login(self):
+        self.spinnerDialog.show()
+        Clock.schedule_once(lambda x: self.login_vertify(), 0.5)
+        Clock.schedule_once(lambda x: self.spinnerDialog.hide(), 1)
 
     def login_vertify(self):
         username = self.ids.text_username.text
@@ -57,10 +64,6 @@ class Login(Screen):
                 appData.init_user(username) # 在Global中存入当前用户信息，username、nickname、address、phoneNumber
                 
                 MDApp.get_running_app().switch_screen("navigator")
-                spinnerDialog = SpinnerDialog()
-                
-                Clock.schedule_once(lambda x: spinnerDialog.show(), 0.5)
-                Clock.schedule_once(lambda x: spinnerDialog.hide(), 2)
                 #self.show_success_popup()
 
             else:
