@@ -11,6 +11,7 @@
         md_bg_color: app.header_bg_color
         padding: app.padding_md
         title: 'Cart'
+        elevation: 0
 
     MDScrollView:
         GridLayout:
@@ -21,25 +22,39 @@
             spacing: dp((Window.height/1080)*20)
             padding: dp((Window.height/1080)*30)
 
-    MDStackLayout:
+    MDBoxLayout:
         size_hint: ((1, None))
         md_bg_color: app.main_bg_color
         spacing: app.padding_xs
         padding: app.padding_xs
-        orientation: 'rl-bt'
         height: self.minimum_height
+        orientation: 'horizontal'
 
-        MDFillRoundFlatButton:
-            text: 'Buy'
-            md_bg_color: app.main_btn_bg_color
-            font_size: app.font_size_md
-            on_press: root.go_buy()
+        MDBoxLayout:
+            size_hint: .05, 1
 
         ItemCheck:
             size_hint: None, None
             size: dp(40), dp(40)
-            pos_hint: {'y': .5}
+            pos_hint: {'center_y': .5}
             on_active: root.select_all_change(self)
+
+        MDLabel:
+            text: 'Select All'
+            bold: True
+            pos_hint: {'center_y': .5}
+
+        MDFillRoundFlatIconButton:
+            text: 'BUY'
+            icon: 'currency-usd'
+            md_bg_color: app.main_btn_bg_color
+            theme_icon_color: 'Custom'
+            icon_color: app.main_text_color
+            theme_text_color: 'Custom'
+            text_color: app.main_text_color
+            on_press: root.go_buy()
+            size_hint: None, .8
+            pos_hint: {'center_y': .5}
 
 <CartItem>:
     size_hint: 1, None
@@ -115,7 +130,7 @@
 
 <Empty>:
     size_hint: 1, None
-    height: Window.height / 2
+    height: Window.height / 1.5
     md_bg_color: app.main_bg_color
     radius: 20
     orientation: 'vertical'

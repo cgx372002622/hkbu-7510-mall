@@ -6,9 +6,17 @@ from kivy.uix.behaviors import ButtonBehavior
 from kivymd.uix.button import MDIconButton
 from kivy.lang import Builder
 from kivymd.app import MDApp
+from kivy.clock import Clock
 
 from app.utils import db_ref
 from app.Global import appData
+from app.components import SpinnerDialog
+
+class DeleteBtn(MDIconButton):
+    item_id = None
+    def __init__(self, item_id='', **kwargs):
+        super(DeleteBtn, self).__init__(**kwargs)
+        self.item_id = item_id
 
 class Empty(MDBoxLayout):
     pass
@@ -49,6 +57,14 @@ class Cart(MDBoxLayout):
         self.cartItem_box.clear_widgets()
 
     def render_list(self):
+        spinnerDialog = SpinnerDialog()
+        spinnerDialog.show()
+
+        Clock.schedule_once(lambda x: self.generate_list(), 0.5)
+
+        Clock.schedule_once(lambda x: spinnerDialog.hide(), 1)
+
+    def generate_list(self):
         if self.cartItem_box is None:
             self.cartItem_box = self.ids.item_box
         self.itemChecks.clear()
@@ -61,6 +77,7 @@ class Cart(MDBoxLayout):
             self.cartItem_box.add_widget(Empty())
         else:
             for k, v in cart_obj.items():
+                item_id = k
                 goods_id = v['goodsId']
                 goods = db_ref.child('goods/' + goods_id).get()
                 item_check = ItemCheck()
@@ -70,11 +87,13 @@ class Cart(MDBoxLayout):
                         MDBoxLayout(
                             size_hint=(1, 0.6)
                         ),
-                        MDIconButton(
+                        DeleteBtn(
+                            item_id=item_id,
                             icon='delete', 
                             theme_text_color='Custom', 
                             text_color=(1, 0, 0, 1), 
-                            size_hint=(1, 0.2)
+                            size_hint=(1, 0.2),
+                            on_press=lambda x: self.delete_on_press(x.item_id)
                         ),
                         orientation='vertical',
                         size_hint=(.1, 1),
@@ -90,6 +109,11 @@ class Cart(MDBoxLayout):
 
     def go_buy(self):
         ...
+
+    def delete_on_press(self, item_id):
+        item_ref = db_ref.child('users/' + appData.current_userId + '/cart/' + item_id)
+        item_ref.delete()
+        self.render_list()
 
     def select_all_change(self, checkbox):
         is_all_selected = checkbox.active

@@ -142,6 +142,13 @@ class Detail(Screen):
                 )
                 comment_box.add_widget(comment)
                 i = i + 1
+        else:
+            comment_box.add_widget(MDLabel(
+                text='Add your first comment!',
+                theme_text_color='Custom',
+                text_color=self.app.tertiary_text_color,
+                pos_hint={'x': .2}
+            ))
 
     def comment_on_focus(self, instance, status):
         if not status:

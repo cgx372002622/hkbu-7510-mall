@@ -114,11 +114,16 @@
             orientation: 'rl-bt'
             height: self.minimum_height
 
-            MDFillRoundFlatButton:
-                text: 'Add In Cart'
+            MDFillRoundFlatIconButton:
+                text: 'ADD'
+                icon: 'cart'
                 md_bg_color: app.main_btn_bg_color
-                font_size: app.font_size_md
+                theme_icon_color: 'Custom'
+                icon_color: app.main_text_color
+                theme_text_color: 'Custom'
+                text_color: app.main_text_color
                 on_press: root.add_in_cart()
+                size_hint: None, .8
 
     MDBoxLayout:
         adaptive_size: True

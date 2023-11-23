@@ -2,7 +2,7 @@ from app.utils.database import db_ref
 
 class AppData:
     current_username = 'test'
-    current_nickname = ''
+    current_nickname = 'test'
     current_address = ''
     current_phoneNumber = ''
     current_userId = '-NjuSBGTMd745jwEf_Lq'

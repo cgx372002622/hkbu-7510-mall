@@ -1,13 +1,17 @@
 #:import * app.widgets
 
 <Navigator>:
+    on_enter: cart.initiation()
     MDBoxLayout:
         orientation: "vertical"
         md_bg_color: app.main_bg_color
 
         MDBottomNavigation:
+            id: navigator
+
             MDBottomNavigationItem:
                 name: "screen 1"
+                icon: 'cart-outline'
                 on_enter: cart.initiation()
                 on_leave: cart.clear()
 
@@ -16,6 +20,7 @@
 
             MDBottomNavigationItem:
                 name: "screen 2"
+                icon: 'arch'
                 on_enter: list.initiation()
                 on_leave: list.clear()
                 
@@ -24,5 +29,6 @@
 
             MDBottomNavigationItem:
                 name: "screen 3"
+                icon: 'account'
 
                 Me:
