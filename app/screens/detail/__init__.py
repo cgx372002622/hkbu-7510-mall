@@ -67,14 +67,7 @@ class Detail(Screen):
                 buttons = [],
                 radius = [20, 20, 20, 20]
             )
-        users_ref = db_ref.child('users').get()
-        print(users_ref)
-        user_key = ''
-        for k, v in users_ref.items():
-            if v['username'] == appData.current_user:
-                user_key = k
-                break
-        cart_ref = db_ref.child('users/' + user_key + '/cart')
+        cart_ref = db_ref.child('users/' + appData.current_userId + '/cart')
         cart = cart_ref.get()
         if cart is None:
             cart_ref.push({

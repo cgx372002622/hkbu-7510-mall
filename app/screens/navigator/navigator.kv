@@ -8,8 +8,11 @@
         MDBottomNavigation:
             MDBottomNavigationItem:
                 name: "screen 1"
+                on_enter: cart.initiation()
+                on_leave: cart.clear()
 
                 Cart:
+                    id: cart
 
             MDBottomNavigationItem:
                 name: "screen 2"

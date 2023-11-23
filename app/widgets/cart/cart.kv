@@ -1,1 +1,126 @@
+#:import Window kivy.core.window.Window
+
 <Cart>:
+    size_hint: (1, 1)
+    orientation: 'vertical'
+    md_bg_color: app.second_bg_color
+    itemChecks: []
+    cartItem_box: None
+
+    MDTopAppBar:
+        md_bg_color: app.header_bg_color
+        padding: app.padding_md
+        title: 'Cart'
+
+    MDScrollView:
+        GridLayout:
+            id: item_box
+            cols: 1
+            size_hint: ((1, None))
+            height: self.minimum_height
+            spacing: dp((Window.height/1080)*20)
+            padding: dp((Window.height/1080)*30)
+
+    MDStackLayout:
+        size_hint: ((1, None))
+        md_bg_color: app.main_bg_color
+        spacing: app.padding_xs
+        padding: app.padding_xs
+        orientation: 'rl-bt'
+        height: self.minimum_height
+
+        MDFillRoundFlatButton:
+            text: 'Buy'
+            md_bg_color: app.main_btn_bg_color
+            font_size: app.font_size_md
+            on_press: root.go_buy()
+
+        ItemCheck:
+            size_hint: None, None
+            size: dp(40), dp(40)
+            pos_hint: {'y': .5}
+            on_active: root.select_all_change(self)
+
+<CartItem>:
+    size_hint: 1, None
+    height: Window.height / 5
+    md_bg_color: app.main_bg_color
+    padding: dp((Window.height/1080)*10)
+    radius: 20
+
+<ItemCheck>:
+    size_hint: 1, 0.2
+
+<ItemContent>:
+    picUrl: 'https://firebasestorage.googleapis.com/v0/b/comp7510-mall.appspot.com/o/mall%2Fgoods-5.jpg?alt=media&token=b3383cb7-cb99-4334-b393-412ddc22ee45'
+    goods_name: ''
+    goods_store: ''
+    goods_price: ''
+    goods_id: 'goods-5'
+
+    on_press: root.go_detail(root.goods_id)
+
+    MDBoxLayout:
+        size_hint: .4, 1
+        padding: 0, 0, dp((Window.height/1080)*10), 0
+
+        RoundedImage:
+            source: root.picUrl
+            size_hint: 1, 1
+            allow_stretch: True
+            nocache: False
+            radius: 10
+
+    MDBoxLayout:
+        size_hint: .4, 1
+        padding: dp((Window.height/1080)*10)
+        spacing: dp((Window.height/1080)*5)
+        orientation: 'vertical'
+
+        MDBoxLayout:
+            size_hint: 1, .7
+            MDLabel:
+                text: root.goods_name
+                text_color: app.main_text_color
+                font_size: app.font_size
+                size_hint: 1, 1
+                pos_hint: {'center_y': .9}
+                padding: 0, dp((Window.height/1080)*20), 0, 0
+
+        MDBoxLayout:
+            size_hint: 1, .2
+            MDLabel:
+                text: '$ ' + root.goods_price
+                color: app.price_text_color
+                font_size: app.font_size
+                pos_hint: {'center_y': .8}
+
+        MDBoxLayout:
+            size_hint: 1, .1
+            MDLabel:
+                text: root.goods_store
+                color: app.tertiary_text_color
+                font_size: app.font_size_sm
+                pos_hint: {'center_y': .5}
+
+<RoundedImage>:
+    canvas:
+        Color:
+            rgb: (1, 1, 1)
+        RoundedRectangle:
+            texture: self.texture
+            pos: self.pos
+            size: self.size
+            radius: [20, 20, 20, 20]
+
+<Empty>:
+    size_hint: 1, None
+    height: Window.height / 2
+    md_bg_color: app.main_bg_color
+    radius: 20
+    orientation: 'vertical'
+
+    MDLabel:
+        text: 'Your cart is empty, go to pick something'
+        color: app.tertiary_text_color
+        pos_hint: {'x': .1, 'center_y': .5}
