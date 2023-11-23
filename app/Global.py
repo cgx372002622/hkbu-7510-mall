@@ -1,7 +1,7 @@
 from app.utils.database import db_ref
 
 class AppData:
-    current_user = ''
+    current_user = 'test'
     current_nickname = ''
     current_address = ''
     current_phoneNumber = ''
