@@ -6,6 +6,7 @@ class AppData:
     current_address = '1,FlatD, Beancon Hill, Knowloon, Hongkong'
     current_phoneNumber = '18820187339'
     current_userId = '-NjuSBGTMd745jwEf_Lq'
+    current_password = 'test'
     passed_cart = [] # 从cart传给check的对象数组，对象：{'goods_id': '', 'count': '', 'key': ''}
     ready_passed_cart = [] # cart页面内部组件间交流使用
 
@@ -18,6 +19,7 @@ class AppData:
             self.current_nickname = cur_user.get('nickname')
             self.current_address = cur_user.get('address')
             self.current_phoneNumber = cur_user.get('phoneNumber')
+            self.current_password = cur_user.get('password')
             self.current_userId = k
             self.passed_cart = []
             self.ready_passed_cart = []
