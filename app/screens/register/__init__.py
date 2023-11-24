@@ -116,31 +116,6 @@ class Register(Screen):
             self.ids.text_phoneNumber.text = ''
             self.ids.text_address.text = ''
 
-    def on_pre_enter(self):      #绑定键盘事件
-         Window.bind(on_key_down = self.on_key_down)
-    
-    def on_pre_leave(self):      #解绑键盘事件
-         Window.unbind(on_key_down = self.on_key_down)
-
-    def on_key_down(self, instance, keyboard, keycode, text, modifiers):
-            if keycode == 9:  # Tab键的键码为9
-                text_inputs = self.ids.text_username
-                current_input = keyboard.focus
-
-                input_index = 0
-                next_input = None
-                for index, input_field in enumerate(text_inputs):
-                    if input_field == current_input:
-                        input_index = index
-                        break
-
-                next_index = (input_index + 1) % len(text_inputs)
-                next_input = text_inputs[next_index]
-
-                next_input.focus = True
-
-
-
 
 class ClickableTextFieldRound2(Screen):
     text = StringProperty()

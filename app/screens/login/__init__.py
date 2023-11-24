@@ -14,6 +14,9 @@ from kivy.uix.popup import Popup
 from app.Global import appData
 from app.components import SpinnerDialog
 
+from kivy.core.text import LabelBase
+LabelBase.register(name='Disko-1', fn_regular='app/resources/Roboto-Bold.ttf')
+
 
 class Login(Screen):
         
@@ -101,15 +104,15 @@ class Login(Screen):
             dialog2.open()
              
 
-    def show_success_popup(self):
-            layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
-            label = Label(text='Login successful!')
+    # def show_success_popup(self):
+    #         layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
+    #         label = Label(text='Login successful!')
 
-            popup = Popup(title='Success', content=layout, size_hint=(None, None), size=(300, 200))
-            layout.add_widget(label)
+    #         popup = Popup(title='Success', content=layout, size_hint=(None, None), size=(300, 200))
+    #         layout.add_widget(label)
 
-            popup.open()
-            Clock.schedule_once(lambda dt: popup.dismiss(), 2)
+    #         popup.open()
+    #         Clock.schedule_once(lambda dt: popup.dismiss(), 2)
 
     def clean(self):
         self.ids.text_username.text = ''
