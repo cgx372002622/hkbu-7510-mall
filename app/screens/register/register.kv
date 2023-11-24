@@ -1,32 +1,50 @@
 <Register>:
-
     MDBoxLayout:
         orientation: "vertical"
         md_bg_color: app.primary_bg_color
-        spacing:'0dp'  #只能在父类设置
-        spacing:'0dp'
-        size_hint_y: 1
+        spacing: '10dp'  #只能在父类设置
+        padding: '0dp','0dp','0dp','0dp'    #左上右下
+        size_hint_y: 1    
+        #MDTopAppBar:
+            #title:"Register"
+            #font_color: '#4994ec'
+            #md_bg_color: app.navigator_bg_color
+            #padding: app.padding_md
+            #size_hint:1,None
+            #elevation: 0
+            #left_action_items:[["arrow-left-bold-circle", lambda x:app.switch_screen('login','left')]]
 
-        MDTopAppBar:
-            title:"Register"
-            md_bg_color: app.navigator_bg_color
-            padding: app.padding_md
-            size_hint:1,None
-            elevation: 0
-            left_action_items:[["arrow-left-bold-circle", lambda x:app.switch_screen('login','left')]]
+        MDBoxLayout:
+            orientation: 'vertical'
+            size_hint: 1, 0.1
+            canvas.before:
+                Color:
+                    rgba: 0.29, 0.58, 0.93, 1 # 设置背景颜色蓝色
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            MDLabel:
+                text: 'Sign up'
+                halign: 'center'
+                valign: 'center'
+                size_hint: 1, 0.1
+                font_name: 'app/resources/Disko-1.ttf'
+                font_size: '50dp'
+
+
 
         MDBoxLayout:
             orientation: "vertical" 
-            spacing:'15dp'
-            padding:'15dp'
-            size_hint_y: 0.8
+            spacing: '30dp'
+            padding: '10dp','10dp','10dp','10dp'
+            size_hint_y: 0.6
             #md_bg_color: "#5bc0f6"
 
-            Image:
-                size_hint: None,None
-                size: '120dp','120dp'
-                pos_hint:{'center_x':0.5,'center_y':0.5}
-                source: 'app/resources/Me.png'
+            #Image:
+                #size_hint: None,None
+                #size: '120dp','120dp'
+                #pos_hint:{'center_x':0.5,'center_y':0.5}
+                #source: 'app/resources/Me.png'
 
             MDTextField:
                 id: text_username
@@ -89,9 +107,9 @@
         MDBoxLayout:
             orientation:'horizontal'
             spacing: '10dp'
-            padding: '15dp'
+            padding: '10dp','10dp','10dp','10dp'
             size_hint_y: 0.1
-            md_bg_color: app.navigator_bg_color
+            #md_bg_color: app.navigator_bg_color
 
             MDRectangleFlatIconButton:
                 text:'Sign up'
@@ -116,6 +134,18 @@
                 size_hint: 0.3, None
                 #pos_hint: {'x':1,'y':0.1}
                 on_press: root.cancel()
+
+            MDRectangleFlatIconButton:
+                text: 'Back'
+                icon: "arrow-left-bold-circle"
+                halign: 'center'
+                text_color: 'white'
+                icon_color: 1,1,1,1
+                md_bg_color:'red'
+                font_size: app.font_size_lg
+                size_hint: 0.3, None
+                #pos_hint: {'x':1,'y':0.1}
+                on_press: app.switch_screen('login','left')
 
 
 <ContentTextField@MDTextField>:

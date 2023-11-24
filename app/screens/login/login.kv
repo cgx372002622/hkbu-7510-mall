@@ -1,121 +1,105 @@
 <Login>:
     MDBoxLayout:
         orientation: 'vertical'
-        spacing: '0dp'
-        padding: '0dp'
+        spacing: '10dp'
+        padding: '0dp','0dp','0dp','0dp'    #左上右下
         size_hint_y: 1
 
-        MDTopAppBar:
-            title:"Login"
-            md_bg_color: app.navigator_bg_color
-            padding: app.padding_md
-            elevation: 0
-            font_name: 'Disko-1'
+        #MDTopAppBar:
+            #title:"Login"
+            #font_color: '#4994ec'
+            #md_bg_color: app.navigator_bg_color
+            #padding: app.padding_md
+            #elevation: 0
+
+        MDBoxLayout:
+            orientation: 'vertical'
+            size_hint: 1, 0.1
+            canvas.before:
+                Color:
+                    rgba: 0.29, 0.58, 0.93, 1 # 设置背景颜色蓝色
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            MDLabel:
+                text: 'Login'
+                halign: 'center'
+                size_hint: 1, 0.1
+                font_name: 'app/resources/Disko-1.ttf'
+                font_size: '50dp'
 
 
         MDBoxLayout:
             orientation: 'vertical'
-            spacing:'20dp'
-            padding:'15dp'
-            size_hint_y: 0.9
+            spacing:'50dp'
+            padding:'20dp','10dp','20dp','300dp'
+            size_hint_y: 0.6
 
-            Image:
-                size_hint: None,None
-                size: '120dp','120dp'
-                pos_hint:{'center_x':0.5,'center_y':0.5}
-                source: 'app/resources/Me.png'
+            #Image:
+                #size_hint: None,None
+                #size: '120dp','120dp'
+                #pos_hint:{'center_x':0.5,'center_y':0.5}
+                #source: 'app/resources/Me.png'
 
             MDTextField:
                 id: text_username
                 hint_text: "Username"
                 size_hint: 1,None
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
                 helper_text: "Please input your username"
                 helper_text_mode: "persistent"
                 border_color: app.border_color
                 icon_left: 'account'
-                mode: "rectangle"
-
-            #ContentTextField:
-                #id: text_username
-                #icon_left: 'Me.png'
-                #hint_text: "Enter your username"
-                #helper_text: "Please input your password"
-                #helper_text_mode: "persistent"    
+                mode: "rectangle"   
 
             ClickableTextFieldRound1:
                 id: text_password
                 size_hint:1,None
                 hint_text: 'Enter your password'
 
-            #MDTextField:
-                #id: text_password
-                #hint_text: "Password"
-                #helper_text: "Please input your password"
-                #helper_text_mode: "persistent"
-                #mode: "rectangle"
-                #size_hint: 1,None
-                #password: True
+        MDBoxLayout:
+            orientation: 'horizontal'
+            spacing: '10dp'
+            padding: '10dp','10dp','10dp','10dp'
+            size_hint_y: 0.1
+            #md_bg_color: app.navigator_bg_color
 
-            MDBoxLayout:
-                orientation: 'horizontal'
-                spacing: '10dp'
-                padding: '0dp'
-                size_hint_y: 0.1
-                md_bg_color: app.navigator_bg_color
+            MDRectangleFlatIconButton:
+                text: 'Login'
+                halign: 'center'
+                icon: 'fingerprint'
+                icon_color: 1,1,1,1
+                text_color: app.primary_btn_font_color
+                md_bg_color: 'green'
+                font_size: app.font_size_lg
+                size_hint: 0.3,None
+                #pos_hint: {'x':0,'y':0.8}
+                on_press: root.login()
 
-                MDRectangleFlatIconButton:
-                    text: 'Login'
-                    halign: 'center'
-                    icon: 'fingerprint'
-                    icon_color: 1,1,1,1
-                    text_color: app.primary_btn_font_color
-                    md_bg_color: 'green'
-                    font_size: app.font_size_lg
-                    size_hint: 0.3,None
-                    #pos_hint: {'x':0,'y':0.8}
-                    on_press: root.login()
+            MDRectangleFlatIconButton:
+                text: 'Sign up'
+                halign: 'center'
+                icon: 'account'
+                icon_color: 1,1,1,1
+                text_color: 'white'
+                md_bg_color: 'blue'
+                font_size: app.font_size_lg
+                size_hint: 0.3,None
+                #pos_hint: {'x':1,'y':0.8}
+                on_press: app.switch_screen('register','left')
 
-                MDRectangleFlatIconButton:
-                    text: 'Sign up'
-                    halign: 'center'
-                    icon: 'account'
-                    icon_color: 1,1,1,1
-                    text_color: 'white'
-                    md_bg_color: 'blue'
-                    font_size: app.font_size_lg
-                    size_hint: 0.3,None
-                    #pos_hint: {'x':1,'y':0.8}
-                    on_press: app.switch_screen('register','left')
-
-                #MDRectangleFlatIconButton:
-                    #text: 'Clean'
-                    #halign: 'center'
-                    #icon: 'delete'
-                    #icon_color: 1,1,1,1
-                    #text_color: 'white'
-                    #md_bg_color: 'red'
-                    #font_size: '20dp'
-                    #size_hint: 0.3,None
-                    #pos_hint: {'x':1,'y':0.8}
-                    #on_press: root.clean()
-
-
-<ContentTextField@MDTextField>:
-    font_size:" 14pt"
-    mode: "rectangle"
-    text_color_normal: "#000000"
-    text_color_focus: "#000000"
-    hint_text_color_normal: "#808080"
-    hint_text_color_focus: "#000000"
-    icon_right_color_normal: 
-    icon_right_color_focus: "6173f3"
-    fill_color_normal: 0, 0, 0, 0
-    fill_color_focus: 0, 0, 0, 0
-    line_color: "#f0f0f0"
-    line_color_foncus: "#7283f5"
-
-
-
+            #MDRectangleFlatIconButton:
+                #text: 'Clean'
+                #halign: 'center'
+                #icon: 'delete'
+                #icon_color: 1,1,1,1
+                #text_color: 'white'
+                #md_bg_color: 'red'
+                #font_size: '20dp'
+                #size_hint: 0.3,None
+                #pos_hint: {'x':1,'y':0.8}
+                #on_press: root.clean()
 
 <ClickableTextFieldRound1>:
     size_hint_y: None

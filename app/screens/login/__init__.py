@@ -9,7 +9,7 @@ from kivymd.uix.dialog import MDDialog
 from kivy.properties import ListProperty, StringProperty, NumericProperty
 from kivymd.uix.boxlayout import BoxLayout
 from kivy.clock import Clock
-from kivy.uix.label import Label
+from kivymd.uix.label import MDLabel
 from kivy.uix.popup import Popup
 from app.Global import appData
 from app.components import SpinnerDialog
