@@ -45,7 +45,7 @@ class Test(MDApp):
     price_text_color = ListProperty([255 / 255, 68 / 255, 0 / 255, 1]) # 价格字体颜色
 
     def build(self):
-        from app.screens import detail, login, register, update, navigator
+        from app.screens import detail, login, register, update, navigator, check
         from app.widgets import cart, me, list
 
         Loader.loading_image = Loader.image('app/resources/loading.gif')
@@ -60,6 +60,7 @@ class Test(MDApp):
         self.register = register.Register()
         self.update = update.Update()
         self.navigator = navigator.Navigator()
+        self.check = check.Check()
 
         self.screens = {
             'cart': self.cart,
@@ -69,7 +70,8 @@ class Test(MDApp):
             'me': self.me,
             'register': self.register,
             'update': self.update,
-            'navigator': self.navigator
+            'navigator': self.navigator,
+            'check': self.check
         }
 
         # self.root.switch_to(self.list)

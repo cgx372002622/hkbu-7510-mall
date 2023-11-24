@@ -1,4 +1,5 @@
 #:import Window kivy.core.window.Window
+#:import RoundedImage app.components
 
 <Cart>:
     size_hint: (1, 1)
@@ -6,6 +7,7 @@
     md_bg_color: app.secondary_bg_color
     itemChecks: []
     cartItem_box: None
+    ready_passed_cart: []
 
     MDTopAppBar:
         md_bg_color: app.navigator_bg_color
@@ -37,6 +39,7 @@
             size_hint: .05, 1
 
         ItemCheck:
+            id: select_all_box
             size_hint: None, None
             size: dp(40), dp(40)
             pos_hint: {'center_y': .5}
@@ -73,6 +76,7 @@
     elevation: 2.5
 
 <ItemCheck>:
+    item_id: None
     size_hint: 1, 0.2
     selected_color: app.primary_btn_bg_color
     color_active: app.primary_btn_bg_color
@@ -83,6 +87,8 @@
     goods_store: ''
     goods_price: ''
     goods_id: 'goods-5'
+    goods_count: ''
+    item_key: ''
 
     on_press: root.go_detail(root.goods_id)
 
@@ -93,9 +99,6 @@
         RoundedImage:
             source: root.picUrl
             size_hint: 1, 1
-            allow_stretch: True
-            nocache: False
-            radius: 10
 
     MDBoxLayout:
         size_hint: .4, 1
@@ -104,7 +107,7 @@
         orientation: 'vertical'
 
         MDBoxLayout:
-            size_hint: 1, .7
+            size_hint: 1, .35
             MDLabel:
                 text: root.goods_name
                 text_color: app.primary_font_color
@@ -112,6 +115,31 @@
                 size_hint: 1, 1
                 pos_hint: {'center_y': .9}
                 padding: 0, dp((Window.height/1080)*20), 0, 0
+
+        MDBoxLayout:
+            size_hint: 1, .35
+            MDBoxLayout:
+                size_hint: 1, 1
+                pos_hint: {'y': .5}
+                orientation: 'horizontal'
+                height: self.minimum_height
+
+                MDIconButton:
+                    icon: 'minus-box' if goods_count.text != '' and int(goods_count.text) > 0 else 'minus-box-outline'
+                    on_release: root.minus_count(goods_count) if goods_count.text != '' and int(goods_count.text) > 0 else root.do_nothing()
+                
+                MDLabel:
+                    id: goods_count
+                    text: root.goods_count
+                    height: self.texture_size[1]
+                    pos_hint: {'y': .1}
+                    font_size: app.font_size
+
+                MDIconButton:
+                    icon: 'plus-box'
+                    on_release:
+                        goods_count.text = str(int(goods_count.text) + 1)
+                        root.add_count()
 
         MDBoxLayout:
             size_hint: 1, .2
@@ -128,16 +156,6 @@
                 color: app.tertiary_text_color
                 font_size: app.font_size_sm
                 pos_hint: {'center_y': .5}
-
-<RoundedImage>:
-    canvas:
-        Color:
-            rgb: (1, 1, 1)
-        RoundedRectangle:
-            texture: self.texture
-            pos: self.pos
-            size: self.size
-            radius: [20, 20, 20, 20]
 
 <Empty>:
     size_hint: 1, None
