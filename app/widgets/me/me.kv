@@ -23,16 +23,15 @@
     MDBoxLayout:
         orientation: "vertical"
 
-        MDBoxLayout:
-            orientation: "horizontal"
-
-            MDLabel:
-                text: "Hi! "+ root.nickname
-                color: app.tertiary_text_color
-                font_size: app.font_size_lg
-                pos_hint: {'x': .5}
-            
         
+
+        MDLabel:
+            text: "Hi! "+ root.nickname
+            color: app.tertiary_text_color
+            font_size: app.font_size_lg
+            pos_hint: {'x': .3}
+        
+    
 
         MDLabel:
             text: "Username: "+root.username
