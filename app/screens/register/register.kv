@@ -118,9 +118,8 @@
                 text_color: 'white'
                 icon_color: 1,1,1,1
                 md_bg_color: 'green'
-                font_size: app.font_size_lg
+                font_size: app.font_size
                 size_hint: 0.3, None
-                #pos_hint: {'x':0,'y':0.1}
                 on_press: root.submit_data()
 
             MDRectangleFlatIconButton:
@@ -130,9 +129,8 @@
                 text_color: 'white'
                 icon_color: 1,1,1,1
                 md_bg_color:'red'
-                font_size: app.font_size_lg
+                font_size: app.font_size
                 size_hint: 0.3, None
-                #pos_hint: {'x':1,'y':0.1}
                 on_press: root.cancel()
 
             MDRectangleFlatIconButton:
@@ -142,9 +140,8 @@
                 text_color: 'white'
                 icon_color: 1,1,1,1
                 md_bg_color:'red'
-                font_size: app.font_size_lg
+                font_size: app.font_size
                 size_hint: 0.3, None
-                #pos_hint: {'x':1,'y':0.1}
                 on_press: app.switch_screen('login','right')
 
 

@@ -22,32 +22,37 @@
 
     MDBoxLayout:
         orientation: "vertical"
+        padding: app.padding_md
+        spacing: app.padding_md
 
         MDBoxLayout:
             orientation: "horizontal"
+            size_hint: 1, None
 
             MDLabel:
                 text: "Hi! "+ root.nickname
                 color: app.tertiary_text_color
                 font_size: app.font_size_lg
-                pos_hint: {'x': .5}
-            
-        
+                height: self.texture_size[1]
+                width: self.texture_size[0]
 
         MDLabel:
             text: "Username: "+root.username
             color: app.tertiary_text_color
             font_size: app.font_size_lg
+            height: self.texture_size[1]
 
         MDLabel:
             text: "Phone Number: "+root.phonenumber
             color: app.tertiary_text_color
             font_size: app.font_size_lg
+            height: self.texture_size[1]
 
         MDLabel:
             text: "Address: "+root.address
             color: app.tertiary_text_color
             font_size: app.font_size_lg
+            height: self.texture_size[1]
 
     MDBoxLayout:
         orientation:'horizontal'
