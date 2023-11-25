@@ -1,90 +1,81 @@
 <Me>:
-    MDBoxLayout:
-        orientation: "vertical"
-        md_bg_color: app.primary_bg_color
-        spacing: dp(20)
+    username: ''
+    nickname: ''
+    phonenumber: ''
+    address: ''
+    orientation: "vertical"
+    md_bg_color: app.primary_bg_color
+    size_hint: (1, 1)
         
 
-        MDTopAppBar:
-            md_bg_color: app.navigator_bg_color
-            padding: app.padding_md
-            title: "Personal Center"
-            title_theme_text_color: "Custom"
-            text_color: app.primary_font_color
-            title_font_style: app.font_size_lg 
-            specific_text_color: "black"
-        BoxLayout:
-            orientation: "vertical"
-            spacing: dp(20 )
-            padding: dp(10)
+    MDTopAppBar:
+        md_bg_color: app.navigator_bg_color
+        title: 'Personal Center'
+        theme_text_color: 'Custom'
+        text_color: app.primary_font_color
+        elevation: 0
+        anchor_title: "center"
+        specific_text_color: "black"
+        size_hint: 1, .14
+        title_font_style: app.font_size_lg 
+        specific_text_color: "black"
 
-            BoxLayout:
-                orientation: "horizontal"
-                spacing: dp(5)
-                padding: dp(5)
-
-                Image:
-                    
-                    size: '24dp','24dp'
-                    source: 'app/resources/Me.png'
-
-                MDLabel:
-                    text: "Hi! "+ root.nickname
-                    color: app.tertiary_text_color
-                    font_size: app.font_size_lg
-               
-           
-
-            MDLabel:
-                text: "Username: "+root.username
-                color: app.tertiary_text_color
-                font_size: app.font_size_lg
-
-            MDLabel:
-                text: "Phone Number: "+root.phonenumber
-                color: app.tertiary_text_color
-                font_size: app.font_size_lg
-
-            MDLabel:
-                text: "Address: "+root.address
-                color: app.tertiary_text_color
-                font_size: app.font_size_lg
+    MDBoxLayout:
+        orientation: "vertical"
 
         MDBoxLayout:
-            orientation:'horizontal'
-            spacing: '10dp'
-            padding: '15dp'
-            size_hint_y: 0.1
-            md_bg_color: app.navigator_bg_color
+            orientation: "horizontal"
 
-            MDRectangleFlatIconButton:
-                text:'Update'
-                icon: 'account'
-                halign: 'center'
-                text_color: 'white'
-                icon_color: 1,1,1,1
-                md_bg_color: 'blue'
+            MDLabel:
+                text: "Hi! "+ root.nickname
+                color: app.tertiary_text_color
                 font_size: app.font_size_lg
-                size_hint: 0.3, None
-                #pos_hint: {'x':0,'y':0.1}
-                on_press: app.switch_screen('update','left')
+                pos_hint: {'x': .5}
+            
+        
 
-            MDRectangleFlatIconButton:
-                text: 'Logout'
-                icon: 'account'
-                halign: 'center'
-                text_color: 'white'
-                icon_color: 1,1,1,1
-                md_bg_color:'red'
-                font_size: app.font_size_lg
-                size_hint: 0.3, None
-                #pos_hint: {'x':1,'y':0.1}
-                on_press: app.switch_screen('login','left')     
+        MDLabel:
+            text: "Username: "+root.username
+            color: app.tertiary_text_color
+            font_size: app.font_size_lg
 
+        MDLabel:
+            text: "Phone Number: "+root.phonenumber
+            color: app.tertiary_text_color
+            font_size: app.font_size_lg
 
-                
-        ScrollView:
-            Column:
-                id: list_container
-                adaptive_height: True
-                spacing: dp(1)
+        MDLabel:
+            text: "Address: "+root.address
+            color: app.tertiary_text_color
+            font_size: app.font_size_lg
+
+    MDBoxLayout:
+        orientation:'horizontal'
+        spacing: '10dp'
+        padding: '15dp'
+        size_hint_y: 0.1
+        md_bg_color: app.navigator_bg_color
+
+        MDRectangleFlatIconButton:
+            text:'Update'
+            icon: 'account'
+            halign: 'center'
+            text_color: 'white'
+            icon_color: 1,1,1,1
+            md_bg_color: 'blue'
+            font_size: app.font_size_lg
+            size_hint: 0.3, None
+            #pos_hint: {'x':0,'y':0.1}
+            on_press: app.switch_screen('update','left')
+
+        MDRectangleFlatIconButton:
+            text: 'Logout'
+            icon: 'account'
+            halign: 'center'
+            text_color: 'white'
+            icon_color: 1,1,1,1
+            md_bg_color:'red'
+            font_size: app.font_size_lg
+            size_hint: 0.3, None
+            #pos_hint: {'x':1,'y':0.1}
+            on_press: app.switch_screen('login','left')     

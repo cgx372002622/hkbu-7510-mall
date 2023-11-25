@@ -3,35 +3,26 @@
         orientation: "vertical"
         md_bg_color: app.primary_bg_color
         spacing:'0dp'  #只能在父类设置
-        size_hint_y: 1
+        size_hint: 1, 1
 
         MDTopAppBar:
-            title:"Update"
             md_bg_color: app.navigator_bg_color
-            padding: app.padding_md
-            size_hint:1,None
-            left_action_items:[["arrow-left", lambda x:app.switch_screen('navigator','right')]]
+            title: 'Update'
+            theme_text_color: 'Custom'
+            text_color: app.primary_font_color
+            elevation: 0
             specific_text_color: "black"
+            size_hint: 1, .13
+            title_font_style: app.font_size_lg 
+            specific_text_color: "black"
+            left_action_items:[["arrow-left", lambda x:app.switch_screen('navigator','right')]]
 
-    
         MDBoxLayout:
             orientation: "vertical" 
             spacing:'10dp'
             padding:'15dp'
-            size_hint_y: 0.8
             #md_bg_color: "#5bc0f6"
-
-            Image:
-                size_hint: None,None
-                size: '100dp','100dp'
-                pos_hint:{'center_x':0.5,'center_y':0.5}
-                source: 'app/resources/Me.png'
-
-            MDLabel:
-                text: root.username
-                size_hint: None, None
-                size: dp(100), dp(56)
-                
+            height: self.minimum_height
                 
             MDTextField:
                 id: txt_OldPassword

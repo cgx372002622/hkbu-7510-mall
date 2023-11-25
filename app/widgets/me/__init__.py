@@ -1,17 +1,15 @@
 import os
-from kivymd.uix.boxlayout import BoxLayout
+from kivymd.uix.boxlayout import MDBoxLayout
 from kivy.lang import Builder
-from kivymd.uix.boxlayout import BoxLayout
-from kivymd.uix.list.list import ThreeLineAvatarListItem, ImageLeftWidget
-from kivymd.app import MDApp
 from app.Global import appData
 
-class Me(BoxLayout):
-    # def display_userdata(self):
-    username = appData.current_username
-    nickname = appData.current_nickname
-    phonenumber = appData.current_phoneNumber
-    address = appData.current_phoneNumber
+class Me(MDBoxLayout):
+    
+    def initiation(self):
+        self.username = appData.current_username
+        self.nickname = appData.current_nickname
+        self.phonenumber = appData.current_phoneNumber
+        self.address = appData.current_phoneNumber
 
     # def Get_username():
    
