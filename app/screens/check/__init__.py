@@ -11,6 +11,16 @@ from app.utils import db_ref
 from app.Global import appData
 from app.components import SpinnerDialog
 
+class Address(MDCard):
+    def __init__(self, current_user_address='', **kwargs):
+        super(Address, self).__init__(**kwargs)
+        self.current_user_address = current_user_address
+
+class Phone(MDCard):
+    def __init__(self, current_user_phonenumber='', **kwargs):
+        super(Phone, self).__init__(**kwargs)
+        self.current_user_phonenumber = current_user_phonenumber
+
 class CheckItem(MDCard):
     def __init__(self, goods_count='', goods_name='', goods_price='', goods_store='', goods_pic_url='', **kwargs):
         super(CheckItem, self).__init__(**kwargs)
@@ -30,8 +40,7 @@ class Check(Screen):
         self.render_list()
 
     def on_leave(self):
-        self.current_user_address = ''
-        self.current_user_phonenumber = ''
+        self.total_price = ''
         goods_box = self.ids.goods_box
         goods_box.clear_widgets()
         appData.passed_cart = []
@@ -45,6 +54,8 @@ class Check(Screen):
         passed_cart = appData.passed_cart
         goods_box = self.ids.goods_box
         total_price = 0
+        goods_box.add_widget(Address(current_user_address=appData.current_address))
+        goods_box.add_widget(Phone(current_user_phonenumber=appData.current_phoneNumber))
         for i in passed_cart:
             goods_id = i['goods_id']
             count = i['count']

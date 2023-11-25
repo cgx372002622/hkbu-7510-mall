@@ -2,8 +2,6 @@
 #:import RoundedImage app.components
 
 <Check>:
-    current_user_address: ''
-    current_user_phonenumber: ''
     total_price: ''
 
     MDBoxLayout:
@@ -30,37 +28,6 @@
                 height: self.minimum_height
                 spacing: dp((Window.height/1080)*20)
                 padding: dp((Window.height/1080)*20)
-
-                MDCard:
-                    size_hint: 1, None
-                    height: self.minimum_height
-                    radius: 15, 15, 15, 15
-                    elevation: 2.5
-                    padding: app.padding_md
-                    spacing: app.padding_sm
-                    md_bg_color: app.primary_bg_color
-                    orientation: 'vertical'
-
-                    MDLabel:
-                        text: 'Your address: ' + root.current_user_address
-                        height: self.texture_size[1]
-                        size_hint: 1, None
-
-                MDCard:
-                    size_hint: 1, None
-                    height: self.minimum_height
-                    radius: 15, 15, 15, 15
-                    elevation: 2.5
-                    padding: app.padding_md
-                    spacing: app.padding_sm
-                    md_bg_color: app.primary_bg_color
-                    orientation: 'vertical'
-
-                    MDLabel:
-                        text: 'Your phone number: ' + root.current_user_phonenumber
-                        height: self.texture_size[1]
-                        size_hint: 1, None
-
 
         MDBoxLayout:
             size_hint: 1, None
@@ -169,3 +136,35 @@
                 pos_hint_y: .1
                 pos_hint: {'x': .1}
                 height: self.texture_size[1]
+
+<Address>:
+    size_hint: 1, None
+    height: self.minimum_height
+    radius: 15, 15, 15, 15
+    elevation: 2.5
+    padding: app.padding_md
+    spacing: app.padding_sm
+    md_bg_color: app.primary_bg_color
+    orientation: 'vertical'
+    current_user_address: ''
+
+    MDLabel:
+        text: 'Your address: ' + root.current_user_address
+        height: self.texture_size[1]
+        size_hint: 1, None
+
+<Phone>:
+    size_hint: 1, None
+    height: self.minimum_height
+    radius: 15, 15, 15, 15
+    elevation: 2.5
+    padding: app.padding_md
+    spacing: app.padding_sm
+    md_bg_color: app.primary_bg_color
+    orientation: 'vertical'
+    current_user_phonenumber: ''
+
+    MDLabel:
+        text: 'Your phone number: ' + root.current_user_phonenumber
+        height: self.texture_size[1]
+        size_hint: 1, None
