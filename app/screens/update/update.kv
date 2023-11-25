@@ -15,7 +15,7 @@
             size_hint: 1, .12
             title_font_style: app.font_size_lg 
             specific_text_color: "black"
-            left_action_items:[["arrow-left", lambda x:app.switch_screen('navigator','right')]]
+            left_action_items:[["arrow-left", lambda x:(app.switch_screen('navigator','right'),root.cancel1())]]
 
         MDBoxLayout:
             orientation: "vertical" 

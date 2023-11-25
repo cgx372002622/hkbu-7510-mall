@@ -24,6 +24,10 @@ class Update(Screen):
         self.ids.txt_NewPhoneNumber.text = ''
         self.ids.txt_NewAddress.text = ''
     
+    def cancel1(self):
+        self.ids.txt_OldPassword.text = ''
+        self.ids.txt_NewPassword.text = ''
+        self.ids.txt_ConfirmNewPassword.text = ''
     def verify(self):   #判断输入的文本是否有问题（密码不一致或者是否有空的），没问题就上传更新用户数据
         # 填了确认新密码，没填新密码，提示
         if (self.ids.txt_NewPassword.text != '' and self.ids.txt_OldPassword.text == ''):
@@ -104,6 +108,21 @@ class Update(Screen):
                 ]
             )
             dialog.open() 
+
+        elif self.ids.txt_NewNickname.text =='' or  self.ids.txt_NewPhoneNumber.text =='' or self.ids.txt_NewAddress.text =='' :
+            dialog = MDDialog(
+                title='Retry',
+                text='Personal information cannot be empty',
+                buttons=[
+                    MDRaisedButton(
+                        text='OK',
+                        on_press=lambda x: dialog.dismiss(),
+                    )
+                ]
+            )
+            dialog.open() 
+
+        
         else : # 上传到firebase更新用户数据
             users_ref = db.reference('users')
             query = users_ref.order_by_child('username').equal_to(appData.current_username)
@@ -148,8 +167,9 @@ class Update(Screen):
             )
             dialog.open()
             Clock.schedule_once(lambda x: dialog.dismiss(), 2)
+            Clock.schedule_once(lambda X: self.cancel1(), 2.5)
             Clock.schedule_once(lambda x: MDApp.get_running_app().switch_screen('navigator'), 2.5)
-       
+           
               
 
 
