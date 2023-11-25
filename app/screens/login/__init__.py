@@ -67,6 +67,8 @@ class Login(Screen):
                 appData.init_user(username) # 在Global中存入当前用户信息，username、nickname、address、phoneNumber
                 
                 MDApp.get_running_app().switch_screen("navigator")
+                self.ids.text_username.text = ''
+                self.ids.text_password.ids.text_field.text = ''
                 #self.show_success_popup()
 
             else:
