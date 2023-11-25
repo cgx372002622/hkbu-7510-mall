@@ -1,1 +1,138 @@
 <Update>:
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: app.primary_bg_color
+        spacing:'0dp'  #只能在父类设置
+        size_hint_y: 1
+
+        MDTopAppBar:
+            title:"Update"
+            md_bg_color: app.navigator_bg_color
+            padding: app.padding_md
+            size_hint:1,None
+            left_action_items:[["arrow-left", lambda x:app.switch_screen('navigator','right')]]
+            specific_text_color: "black"
+
+    
+        MDBoxLayout:
+            orientation: "vertical" 
+            spacing:'10dp'
+            padding:'15dp'
+            size_hint_y: 0.8
+            #md_bg_color: "#5bc0f6"
+
+            Image:
+                size_hint: None,None
+                size: '100dp','100dp'
+                pos_hint:{'center_x':0.5,'center_y':0.5}
+                source: 'app/resources/Me.png'
+
+            MDLabel:
+                text: root.username
+                size_hint: None, None
+                size: dp(100), dp(56)
+                
+                
+            MDTextField:
+                id: txt_OldPassword
+                hint_text: 'Old Password'
+                helper_text: "Please input your old password"
+                helper_text_mode: "persistent"
+                mode:"rectangle"
+                password: True
+                icon_left: 'key-variant'
+            
+            MDTextField:
+                id: txt_NewPassword
+                hint_text: 'New Password'
+                helper_text: "Please input your New password"
+                helper_text_mode: "persistent"
+                mode:"rectangle"
+                password: True
+                icon_left: 'key-variant'
+                
+            
+            MDTextField:
+                id: txt_ConfirmNewPassword
+                hint_text: 'Confirm New Password'
+                helper_text: "Please confirm your New password"
+                helper_text_mode: "persistent"
+                mode:"rectangle"
+                password: True
+                icon_left: 'key-variant'
+                
+            MDTextField:
+                id:txt_NewNickname
+                hint_text: "New Nickname"
+                helper_text: "Please input your new nickname"
+                helper_text_mode: "persistent"
+                mode:"rectangle"
+                size_hint:1,None
+                icon_left: 'account'
+
+            MDTextField:
+                id:txt_NewPhoneNumber
+                hint_text: "New Phone number"
+                helper_text: "Please input your new phone number max length 11"
+                helper_text_mode: "persistent"
+                mode:"rectangle"
+                size_hint:1,None
+                max_text_length: 11
+                icon_left: 'phone'
+
+            MDTextField:
+                id:txt_NewAddress
+                hint_text: "New Address"
+                helper_text: "Please input your new address"
+                helper_text_mode: "persistent"
+                mode:"rectangle"
+                size_hint:1,None
+                icon_left: 'map-marker'  
+
+        MDBoxLayout:
+            orientation:'horizontal'
+            spacing: '10dp'
+            padding: '15dp'
+            size_hint_y: 0.1
+            md_bg_color: app.navigator_bg_color
+
+            MDRectangleFlatIconButton:
+                text:'Confirm'
+                icon: 'account'
+                halign: 'center'
+                text_color: 'white'
+                icon_color: 1,1,1,1
+                md_bg_color: 'green'
+                font_size: app.font_size_lg
+                size_hint: 0.3, None
+                #pos_hint: {'x':0,'y':0.1}
+                on_press: root.OldPassword_vertify()
+
+            MDRectangleFlatIconButton:
+                text: 'Clean'
+                icon: 'delete'
+                halign: 'center'
+                text_color: 'white'
+                icon_color: 1,1,1,1
+                md_bg_color:'red'
+                font_size: app.font_size_lg
+                size_hint: 0.3, None
+                #pos_hint: {'x':1,'y':0.1}
+                on_press: root.cancel()  
+    
+
+        
+                       
+            
+
+        
+        
+
+        
+
+        
+
+
+
+
+
