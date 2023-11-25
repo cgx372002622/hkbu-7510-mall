@@ -53,8 +53,10 @@
         orientation:'horizontal'
         spacing: '10dp'
         padding: '15dp'
-        size_hint_y: 0.1
-        md_bg_color: app.navigator_bg_color
+        size_hint: 1, None
+        height: self.minimum_height
+        md_bg_color: app.primary_bg_color
+        pos_hint: {'y': 0}
 
         MDRectangleFlatIconButton:
             text:'Update'
@@ -65,7 +67,6 @@
             md_bg_color: 'blue'
             font_size: app.font_size_lg
             size_hint: 0.3, None
-            #pos_hint: {'x':0,'y':0.1}
             on_press: app.switch_screen('update','left')
 
         MDRectangleFlatIconButton:
@@ -77,5 +78,4 @@
             md_bg_color:'red'
             font_size: app.font_size_lg
             size_hint: 0.3, None
-            #pos_hint: {'x':1,'y':0.1}
-            on_press: app.switch_screen('login','left')     
+            on_press: root.logout()

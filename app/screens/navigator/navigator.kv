@@ -1,7 +1,9 @@
 #:import * app.widgets
 
 <Navigator>:
-    on_enter: cart.initiation()
+    on_enter: 
+        cart.initiation()
+        me.initiation()
     MDBoxLayout:
         orientation: "vertical"
         md_bg_color: app.primary_bg_color

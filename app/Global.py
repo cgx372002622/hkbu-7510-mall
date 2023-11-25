@@ -3,8 +3,8 @@ from app.utils.database import db_ref
 class AppData:
     current_username = 'test'
     current_nickname = 'test'
-    current_address = '1,FlatD, Beancon Hill, Knowloon, Hongkong'
-    current_phoneNumber = '18820187339'
+    current_address = 'test'
+    current_phoneNumber = 'test'
     current_userId = '-NjuSBGTMd745jwEf_Lq'
     current_password = 'test'
     passed_cart = [] # 从cart传给check的对象数组，对象：{'goods_id': '', 'count': '', 'key': ''}
@@ -23,7 +23,17 @@ class AppData:
             self.current_userId = k
             self.passed_cart = []
             self.ready_passed_cart = []
-        print(self)
+
+    def initialize(self):
+        self.current_username = ''
+        self.current_nickname = ''
+        self.current_address = ''
+        self.current_phoneNumber = ''
+        self.current_password = ''
+        self.current_userId = ''
+        self.passed_cart = []
+        self.ready_passed_cart = []
+
 
 appData = AppData()
 

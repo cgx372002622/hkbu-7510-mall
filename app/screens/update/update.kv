@@ -12,16 +12,16 @@
             text_color: app.primary_font_color
             elevation: 0
             specific_text_color: "black"
-            size_hint: 1, .13
+            size_hint: 1, .12
             title_font_style: app.font_size_lg 
             specific_text_color: "black"
             left_action_items:[["arrow-left", lambda x:app.switch_screen('navigator','right')]]
 
         MDBoxLayout:
             orientation: "vertical" 
-            spacing:'10dp'
+            spacing:'20dp'
             padding:'15dp'
-            #md_bg_color: "#5bc0f6"
+            size_hint: 1, None
             height: self.minimum_height
                 
             MDTextField:
@@ -81,10 +81,14 @@
                 icon_left: 'map-marker'  
 
         MDBoxLayout:
+            size_hint: 1, .2
+        MDBoxLayout:
             orientation:'horizontal'
             spacing: '10dp'
             padding: '15dp'
-            size_hint_y: 0.1
+            size_hint: 1, None
+            height: self.minimum_height
+            pos_hint: {'y': 0}
             md_bg_color: app.navigator_bg_color
 
             MDRectangleFlatIconButton:
@@ -94,10 +98,9 @@
                 text_color: 'white'
                 icon_color: 1,1,1,1
                 md_bg_color: 'green'
+                size_hint_x: .5 
                 font_size: app.font_size_lg
-                size_hint: 0.3, None
-                #pos_hint: {'x':0,'y':0.1}
-                on_press: root.OldPassword_vertify()
+                on_press: root.verify()
 
             MDRectangleFlatIconButton:
                 text: 'Clean'
@@ -106,9 +109,8 @@
                 text_color: 'white'
                 icon_color: 1,1,1,1
                 md_bg_color:'red'
+                size_hint_x: .5 
                 font_size: app.font_size_lg
-                size_hint: 0.3, None
-                #pos_hint: {'x':1,'y':0.1}
                 on_press: root.cancel()  
     
 
