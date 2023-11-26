@@ -65,7 +65,9 @@ class Login(Screen):
                 username = self.ids.text_username.text
 
                 appData.init_user(username) # 在Global中存入当前用户信息，username、nickname、address、phoneNumber
-                
+                navigator_screen = MDApp.get_running_app().get_screen('navigator')
+                navigator = navigator_screen.ids.navigator
+                navigator.switch_tab('screen 2')
                 MDApp.get_running_app().switch_screen("navigator")
                 self.ids.text_username.text = ''
                 self.ids.text_password.ids.text_field.text = ''

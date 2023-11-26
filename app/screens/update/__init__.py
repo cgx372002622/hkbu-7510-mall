@@ -168,7 +168,7 @@ class Update(Screen):
             dialog.open()
             Clock.schedule_once(lambda x: dialog.dismiss(), 2)
             Clock.schedule_once(lambda X: self.cancel1(), 2.5)
-            Clock.schedule_once(lambda x: MDApp.get_running_app().switch_screen('navigator'), 2.5)
+            Clock.schedule_once(lambda x: MDApp.get_running_app().switch_screen('navigator', 'right'), 2.5)
            
               
 
