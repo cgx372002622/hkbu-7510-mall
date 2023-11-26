@@ -122,7 +122,31 @@ class Update(Screen):
             )
             dialog.open() 
 
-        
+        elif len(self.ids.txt_NewPhoneNumber.text) > 11 :
+            dialog = MDDialog(
+                title='Retry',
+                text='Entered number exceeds maximum length 11',
+                buttons=[
+                    MDRaisedButton(
+                        text='OK',
+                        on_press=lambda x: dialog.dismiss(),
+                    )
+                ]
+            )
+            dialog.open() 
+
+        elif not self.ids.txt_NewPhoneNumber.text.isdigit():
+            dialog = MDDialog(
+                title='Retry',
+                text='Phone numbers can only contain digits!',
+                buttons=[
+                    MDRaisedButton(
+                        text='OK',
+                        on_press=lambda x: dialog.dismiss(),
+                    )
+                ]
+            )
+            dialog.open() 
         else : # 上传到firebase更新用户数据
             users_ref = db.reference('users')
             query = users_ref.order_by_child('username').equal_to(appData.current_username)
