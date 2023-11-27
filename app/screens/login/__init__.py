@@ -69,7 +69,7 @@ class Login(Screen):
                 navigator = navigator_screen.ids.navigator
                 navigator.switch_tab('screen 2')
                 MDApp.get_running_app().switch_screen("navigator")
-                self.ids.text_username.text = ''
+                # self.ids.text_username.text = ''
                 self.ids.text_password.ids.text_field.text = ''
                 #self.show_success_popup()
 
